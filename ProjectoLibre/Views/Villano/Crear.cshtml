@@ -1,0 +1,35 @@
+﻿@model ProjectoLibre.Models.Villano
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Villano</legend>
+
+        <div class="editor-label">
+            <p>Nombre:</p>
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(v => v.nombre)
+            @Html.ValidationMessageFor(v => v.nombre)
+        </div>
+
+        <div class="editor-label">
+            <p>Amenaza:</p>
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(v => v.amenaza)
+            @Html.ValidationMessageFor(v => v.amenaza)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Personajes", "Gotham")
+</div>

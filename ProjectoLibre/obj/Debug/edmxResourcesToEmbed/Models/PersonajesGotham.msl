@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BibliotecaDBModelStoreContainer" CdmEntityContainer="BibliotecaDBEntities">
+    <EntitySetMapping Name="Heroes">
+      <EntityTypeMapping TypeName="BibliotecaDBModel.Heroe">
+        <MappingFragment StoreEntitySet="Heroe">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="habilidad" ColumnName="habilidad" />
+          <ScalarProperty Name="imagenName" ColumnName="imagenName" />
+          <ScalarProperty Name="imagenData" ColumnName="imagenData" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Villanoes">
+      <EntityTypeMapping TypeName="BibliotecaDBModel.Villano">
+        <MappingFragment StoreEntitySet="Villano">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="amenaza" ColumnName="amenaza" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

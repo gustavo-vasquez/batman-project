@@ -1,0 +1,164 @@
+﻿@model ProjectoLibre.Models.Listados
+
+@{
+    ViewBag.Title = "Portada";
+}
+
+@Scripts.Render("~/Scripts/music.js")
+@Scripts.Render("~/Scripts/phraseText.js")
+
+<!-- Heading Row -->
+<div class="row">
+    <div class="col-md-8">
+        <img class="img-responsive img-rounded" src="~/Images/batmanMain.png" alt="main">
+    </div>
+    <!-- /.col-md-8 -->
+    <div class="col-md-4">
+        <h1>Bienvenidos a Gotham City</h1>
+        <p>Aqui vera una muestra de todos los personajes de Batman, tanto heroes como villanos quedaran inmortalizados en esta planilla llena de frikis.</p>
+        <audio id="playMusic" src="../Multimedia/batman_main_theme.mp3" preload="auto"></audio>
+        <button id="music-button" class="btn btn-primary btn-lg" onclick="reproducir(document.getElementById('playMusic'));">Escuchar tema <span class="glyphicon glyphicon-music"></span></button>
+    </div>
+    <!-- /.col-md-4 -->
+</div>
+
+<!-- /.row -->
+<hr>
+<!-- Call to Action Well -->
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="well well-sm text-center">
+            <span id="phrase"></span>       
+        </div>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<!-- Content Row -->
+<div class="row">
+    <div class="col-md-4">
+        <h2>Crear personajes</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
+        @Html.ActionLink("Click aquí", "Crear", null, new { @class = "btn btn-default" })
+        @*<a class="btn btn-default" href="#">Click aquí</a>*@
+    </div>
+    <!-- /.col-md-4 -->
+    <div class="col-md-4">
+        <h2>Vista de pestañas</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
+        <a class="btn btn-default" href="#">Click aquí</a>
+    </div>
+    <!-- /.col-md-4 -->
+    <div class="col-md-4">
+        <h2>Galeria de fotos</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
+        <a class="btn btn-default" href="#">Click aquí</a>
+    </div>
+    <!-- /.col-md-4 -->
+</div>
+
+<div>
+    <div class="col-xs-12 vert"></div>
+    <h2 class="text-center text-uppercase">Lista de personajes</h2>
+    <br />
+    <h3>Heroes</h3>
+
+    @if (Model.ExistenHeroes())
+    {
+        @*<p>
+            @Html.ActionLink("Crea uno nuevo", "Crear")
+        </p>*@
+        <table class="table table-bordered table-hover table-responsive bg-table">
+            <thead class="bg-primary">
+            <tr>
+                <th>Nombre</th>
+                <th>Habilidad</th>
+                <th>Opciones</th>
+            </tr>
+            </thead>
+
+            @foreach (var h in Model.MostrarHeroes())
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => h.nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => h.habilidad)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "Editar", "Heroe", new { id = h.id }, null) |
+                        @Html.ActionLink("Eliminar", "Eliminar", "Heroe", new { id = h.id }, null)
+                    </td>
+                </tr>
+            }
+
+        </table>
+    }
+    else
+    {
+        <p>Todavia no hay heroes en la lista, @Html.ActionLink("crea uno ahora", "Crear")</p>
+    }
+
+    <br />
+    
+
+    <h3>Villanos</h3>
+
+    @if (Model.ExistenVillanos())
+    {
+        @*<p>
+            @Html.ActionLink("Crea uno nuevo", "Crear")
+        </p>*@
+        <table class="table table-bordered table-hover table-responsive bg-table">
+            <thead class="bg-primary">
+            <tr>
+                <th>Nombre</th>
+                <th>Amenaza</th>
+                <th>Opciones</th>
+            </tr>
+            </thead>
+
+            @foreach (var v in Model.MostrarVillanos())
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => v.nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => v.amenaza)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "Editar", "Villano", new { id = v.id }, null) |
+                        @Html.ActionLink("Eliminar", "Eliminar", "Villano", new { id = v.id }, null)
+                    </td>
+                </tr>
+            }
+
+        </table>
+    }
+    else
+    {
+        <p>Todavia no hay villanos en la lista, @Html.ActionLink("crea uno ahora", "Crear")</p>
+    }
+
+
+
+    @*<div id="DivHeroe">
+
+        </div>
+        <script>
+            $("#DivHeroe").load("/Gotham/Editar?id=4&tipo=h");
+        </script>*@
+</div>
+<!-- /.row -->
+
+@*<div id="DivDelete" style="display: none;">
+</div>*@
+
+@*<script type="text/javascript">
+    function cargar(ide) {
+        $("#DivDelete").load("../Heroe/Eliminar")
+    }
+</script>*@

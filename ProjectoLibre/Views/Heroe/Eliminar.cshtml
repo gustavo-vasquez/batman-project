@@ -1,0 +1,36 @@
+﻿@model ProjectoLibre.Models.Heroe
+
+@{
+    ViewBag.Title = "Eliminar";
+}
+
+@Scripts.Render("~/Scripts/deleteModal.js")
+@Styles.Render("~/Content/modal-alert.css")
+
+<!-- Modal -->
+<div class="modal fade" id="dialogDelete" role="dialog">
+    <div class="vertical-alignment-helper">
+        <div class="modal-dialog vertical-align-center">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" onclick="document.location = '@Url.Action("Portada", "Gotham")';">&times;</button>
+                    <h4 class="modal-title">Eliminar personaje <span class="glyphicon glyphicon-remove-circle"></span></h4>
+                </div>
+                <div class="modal-body">
+                    <p>¿Está seguro que desea borrar a este personaje?</p>
+                    <p>@Model.nombre</p>
+                </div>
+                <div class="modal-footer">
+                    @using (Html.BeginForm())
+                    {                        
+                        <input type="submit" class="btn btn-success" value="Confirmar" />                    
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="document.location = '@Url.Action("Portada", "Gotham")';">Cancelar</button>
+                    }
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

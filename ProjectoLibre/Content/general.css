@@ -1,0 +1,24 @@
+﻿.backimage {
+     background-image: url('../../Images/background_material.png');
+     background-position: center;
+     background-repeat: no-repeat;
+     background-attachment: fixed;     
+}
+
+.vert {
+    height:50px;
+}
+
+.bg-table {
+  background-color: #ffffff;
+}
+
+.bg-table > tbody > tr:hover {
+  background-color: #f1eeee;
+}
+
+.trebuchet {
+    font-family: 'Trebuchet MS';
+    text-transform: uppercase;
+    font-weight: bold;
+}
