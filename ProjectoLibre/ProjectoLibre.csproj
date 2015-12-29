@@ -167,6 +167,7 @@
   <ItemGroup>
     <Content Include="Content\general.css" />
     <Content Include="Content\modal-alert.css" />
+    <Content Include="Content\validation-style.css" />
     <Content Include="favicon.ico" />
     <Content Include="Content\bootstrap\bootstrap-theme.css" />
     <Content Include="Content\bootstrap\bootstrap-theme.min.css" />
@@ -288,6 +289,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\music.js" />
     <Content Include="Scripts\phraseText.js" />
+    <Content Include="Scripts\scrollButtons.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

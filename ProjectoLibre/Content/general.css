@@ -22,3 +22,7 @@
     text-transform: uppercase;
     font-weight: bold;
 }
+
+.input-sm {
+    width: 200px !important;    
+}

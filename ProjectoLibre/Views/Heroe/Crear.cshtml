@@ -15,7 +15,7 @@
 
             <div class="col-sm-7">
                 @Html.TextBoxFor(h => h.nombre, new { @class="form-control", placeholder = "Ingrese nombre..." })
-                @Html.ValidationMessageFor(h => h.nombre)
+                @Html.ValidationMessageFor(h => h.nombre, null, new { @class = "validations" })
             </div>
         </div>
 
@@ -24,7 +24,7 @@
 
             <div class="col-sm-7">
                 @Html.TextBoxFor(h => h.habilidad, new { @class = "form-control", placeholder = "Ingrese habilidad..." })
-                @Html.ValidationMessageFor(h => h.habilidad)
+                @Html.ValidationMessageFor(h => h.habilidad, null, new { @class = "validations" })
             </div>
         </div>
 
@@ -34,7 +34,7 @@
             <div class="col-sm-10">
                 @*<input type="file" name="archivo" />*@
                 @Html.TextBoxFor(h => h.file, new { type = "file", @class = "btn btn-default" })
-                @Html.ValidationMessageFor(h => h.file)
+                @Html.ValidationMessageFor(h => h.file, null, new { @class = "validations" })
             </div>
         </div>
 

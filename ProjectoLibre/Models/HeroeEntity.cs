@@ -19,11 +19,11 @@ namespace ProjectoLibre.Models
     {
 
         [Required(ErrorMessage = "*Debe ingresar un nombre")]
-        [StringLength(16, ErrorMessage = "*Maximo 16 caracteres")]
+        [StringLength(16, ErrorMessage = "*Máximo 16 caracteres")]
         public string nombre { get; set; }
 
         [Required(ErrorMessage = "*Debe ingresar una habilidad")]
-        [StringLength(10, ErrorMessage = "*Maximo 10 caracteres")]
+        [StringLength(10, ErrorMessage = "*Máximo 10 caracteres")]
         public string habilidad { get; set; }
 
         public string imagenName { get; set; }
@@ -50,7 +50,7 @@ namespace ProjectoLibre.Models
 
         public override string FormatErrorMessage(string name)
         {
-            return string.Format("*Tamaño máximo de imágen -> 2 MB");
+            return string.Format("*Tamaño máximo de imágen = 2 MB");
         }
     }
 
