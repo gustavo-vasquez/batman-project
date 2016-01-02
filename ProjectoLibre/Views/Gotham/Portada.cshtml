@@ -50,7 +50,7 @@
     <div class="col-md-4">
         <h2>Vista de pestañas</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
-        <a class="btn btn-default" href="#">Click aquí</a>
+        <a class="btn btn-default" href="@Url.Action("Tabs", "Gotham")">Click aquí</a>
     </div>
     <!-- /.col-md-4 -->
     <div class="col-md-4">
@@ -61,19 +61,16 @@
     <!-- /.col-md-4 -->
 </div>
 
-<div>
-    <div class="col-xs-12 vert"></div>
+<div>    
+    <div class="col-xs-12 vert"></div>    
     <h2 class="text-center text-uppercase">Lista de personajes</h2>
     <br />
-    <h3>Heroes</h3>
+    <h3>Héroes</h3>
 
     @if (Model.ExistenHeroes())
     {
-        @*<p>
-            @Html.ActionLink("Crea uno nuevo", "Crear")
-        </p>*@
-        <table class="table table-bordered table-hover table-responsive bg-table">
-            <thead class="bg-primary">
+        <table class="table table-bordered table-hover table-responsive">
+            <thead class="bg-success">
             <tr>
                 <th>Nombre</th>
                 <th>Habilidad</th>
@@ -111,11 +108,8 @@
 
     @if (Model.ExistenVillanos())
     {
-        @*<p>
-            @Html.ActionLink("Crea uno nuevo", "Crear")
-        </p>*@
-        <table class="table table-bordered table-hover table-responsive bg-table">
-            <thead class="bg-primary">
+        <table class="table table-bordered table-hover table-responsive">
+            <thead class="bg-danger">
             <tr>
                 <th>Nombre</th>
                 <th>Amenaza</th>

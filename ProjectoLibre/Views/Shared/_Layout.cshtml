@@ -50,23 +50,23 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="@Url.Action("Portada", "Gotham")">
-                    <img src="../../Images/logo.png" alt="" width="150" height="50">
+                    <img src="../../Images/logo.png" alt="logo_principal" width="125" height="40" title="Batman HomePage">
                 </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav">                    
                     <li class="trebuchet">
-                        @Html.ActionLink("Inicio", "Portada", "Gotham")
+                        @Html.ActionLink(HttpUtility.HtmlDecode("&raquo; ") + "Inicio", "Portada", "Gotham")
                     </li>
                     <li class="trebuchet">
-                        @Html.ActionLink("Pestañas", "Tabs", "Gotham")
+                        @Html.ActionLink(HttpUtility.HtmlDecode("&raquo; ") + "Pestañas", "Tabs", "Gotham")
                     </li>
                     <li class="trebuchet">
-                        @Html.ActionLink("Contacto", "Contacto", "Gotham")
+                        @Html.ActionLink(HttpUtility.HtmlDecode("&raquo; ") + "Contacto", "Contacto", "Gotham")
                     </li>
                     <li class="trebuchet">
-                        @Html.ActionLink("Trailer", "Trailer", "Gotham")
+                        @Html.ActionLink(HttpUtility.HtmlDecode("&raquo; ") + "Trailer", "Trailer", "Gotham")
                     </li>
                 </ul>
                 <form class="navbar-form navbar-right" style="padding-top: 15px;" id=" form-search" role="search">
@@ -83,7 +83,7 @@
         <!-- /.container -->
     </nav>
     <div id="scrollButtonUp">
-        <button class="btn btn-success" onclick="scrollToTop();"><span class="glyphicon glyphicon-arrow-up"></span></button>
+        <button class="btn btn-default" onclick="scrollToTop();"><span class="glyphicon glyphicon-arrow-up"></span></button>
     </div>
     <!-- Page Content -->
     <div class="container">
@@ -102,7 +102,7 @@
     <!-- /.container -->
     
     <div id="scrollButtonDown">
-        <button class="btn btn-danger" onclick="scrollToDown();"><span class="glyphicon glyphicon-arrow-down"></span></button>
+        <button class="btn btn-default" onclick="scrollToDown();"><span class="glyphicon glyphicon-arrow-down"></span></button>
     </div>
 </body>
 </html>
