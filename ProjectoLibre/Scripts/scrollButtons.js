@@ -13,6 +13,13 @@ $(window).scroll(function () {
     } else {
         $('#scrollButtonUp').slideUp();        
     }
+
+    if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+        $('#scrollButtonDown').slideUp();
+    }
+    else {
+        $('#scrollButtonDown').css("display", "block");
+    }
 });
 
 function scrollToTop() {

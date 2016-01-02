@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "VerJson";
+}
+
+<script>
+    function asd() {
+        $.getJSON("/Practica/Sugerencias", null, Mostrar);
+        return true;
+    }
+
+    function Mostrar(data) {
+        alert(data);
+    }    
+</script>
+
+<h2>VerJson</h2>
+
+<input type="button" value="ver" onclick="return asd();" />

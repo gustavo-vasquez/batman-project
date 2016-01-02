@@ -134,10 +134,12 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\GothamController.cs" />
     <Compile Include="Controllers\HeroeController.cs" />
+    <Compile Include="Controllers\PracticaController.cs" />
     <Compile Include="Controllers\VillanoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Busqueda.cs" />
     <Compile Include="Models\Heroe.cs">
       <DependentUpon>PersonajesGotham.tt</DependentUpon>
     </Compile>
@@ -311,6 +313,8 @@
     <Content Include="Views\Heroe\Editar.cshtml" />
     <Content Include="Views\Heroe\Resultado.cshtml" />
     <Content Include="Views\Heroe\Eliminar.cshtml" />
+    <Content Include="Views\Practica\VerJson.cshtml" />
+    <Content Include="Views\Gotham\Tabs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,142 +1,47 @@
-// Lumen 3.3.5
+// Superhero 3.3.5
 // Bootswatch
 // -----------------------------------------------------
 
-$web-font-path: "https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic" !default;
+$web-font-path: "https://fonts.googleapis.com/css?family=Lato:300,400,700" !default;
 @import url($web-font-path);
-
-@mixin shadow($width: 4px){
-  border-width: 0 1px $width 1px;
-}
 
 // Navbar =====================================================================
 
-.navbar  {
-  @include shadow();
+.navbar {
+  @include box-shadow(none);
+  border: none;
+  font-size: 12px;
+
+  &-default {
+
+    .badge {
+      background-color: #fff;
+      color: $navbar-default-bg;
+    }
+  }
+
+  &-inverse {
+
+    .badge {
+      background-color: #fff;
+      color: $navbar-inverse-bg;
+    }
+  }
 }
 
 // Buttons ====================================================================
 
 .btn {
-  padding: ($padding-base-vertical + 2) $padding-base-horizontal $padding-base-vertical;
-  @include shadow();
-  font-size: 12px;
-  font-weight: bold;
-  text-transform: uppercase;
 
-  &:hover {
-    margin-top: 1px;
-    border-bottom-width: 3px;
-  }
-
-  &:active {
-    margin-top: 2px;
-    border-bottom-width: 2px;
-    @include box-shadow(none);
-  }
-
-  &-lg,
-  &-group-lg > .btn {
-    padding: ($padding-large-vertical + 2) $padding-large-horizontal $padding-large-vertical;
-    line-height: 15px;
+  &-default {
+    &:hover {
+      background-color: darken($btn-default-bg, 3%);
+    }
   }
 
   &-sm,
-  &-group-sm > .btn {
-    padding: ($padding-small-vertical + 2) $padding-small-horizontal $padding-small-vertical;
-  }
-
-  &-xs,
-  &-group-xs > .btn {
-    padding: ($padding-xs-vertical + 2) $padding-xs-horizontal $padding-xs-vertical;
-  }
-
-  &-default:hover,
-  &-default:focus,
-  &-group.open .dropdown-toggle.btn-default {
-    background-color: $btn-default-bg;
-    border-color: $btn-default-border;
-  }
-
-  &-primary:hover,
-  &-primary:focus,
-  &-group.open .dropdown-toggle.btn-primary {
-    background-color: $btn-primary-bg;
-    border-color: $btn-primary-border;
-  }
-
-  &-success:hover,
-  &-success:focus,
-  &-group.open .dropdown-toggle.btn-success {
-    background-color: $btn-success-bg;
-    border-color: $btn-success-border;
-  }
-
-  &-info:hover,
-  &-info:focus,
-  &-group.open .dropdown-toggle.btn-info {
-    background-color: $btn-info-bg;
-    border-color: $btn-info-border;
-  }
-
-  &-warning:hover,
-  &-warning:focus,
-  &-group.open .dropdown-toggle.btn-warning {
-    background-color: $btn-warning-bg;
-    border-color: $btn-warning-border;
-  }
-
-  &-danger:hover,
-  &-danger:focus,
-  &-group.open .dropdown-toggle.btn-danger {
-    background-color: $btn-danger-bg;
-    border-color: $btn-danger-border;
-  }
-
-  &-group.open .dropdown-toggle {
-    @include box-shadow(none);
-  }
-}
-
-.navbar-btn {
-  &:hover {
-    margin-top: 8px
-  }
-
-  &:active {
-    margin-top: 9px
-  }
-
-  &.btn-sm {
-    &:hover {
-      margin-top: 11px
-    }
-
-    &:active {
-      margin-top: 12px
-    }
-  }
-
-  &.btn-xs {
-    &:hover {
-      margin-top: 15px
-    }
-
-    &:active {
-      margin-top: 16px
-    }
-  }
-}
-
-.btn-group-vertical {
-  .btn + .btn {
-    &:hover {
-      border-top-width: 1px;
-    }
-
-    &:active {
-      border-top-width: 2px;
-    }
+  &-xs {
+    font-size: 12px;
   }
 }
 
@@ -167,12 +72,37 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400
   color: $brand-info;
 }
 
+.page-header {
+  border-bottom-color: $table-border-color;
+}
+
+.dropdown-menu {
+
+  border: none;
+  margin: 0;
+  @include box-shadow(none);
+
+  > li > a {
+    font-size: 12px;
+  }
+}
+
+.btn-group.open .dropdown-toggle {
+  @include box-shadow(none);
+}
+
+.dropdown-header {
+  font-size: 12px;
+}
+
 // Tables =====================================================================
 
 table,
 .table {
+  font-size: 12px;
 
   a:not(.btn) {
+    color: #fff;
     text-decoration: underline;
   }
 
@@ -180,37 +110,37 @@ table,
     text-decoration: none;
   }
 
-  .success,
-  .warning,
-  .danger,
-  .info {
-    color: #fff;
-
-    a:not(.btn) {
-      color: #fff;
-    }
+  .text-muted {
+    color: $text-muted;
   }
 
-  &:not(.table-bordered) {
-    > thead > tr > th,
-    > tbody > tr > th,
-    > tfoot > tr > th,
-    > thead > tr > td,
-    > tbody > tr > td,
-    > tfoot > tr > td {
-      border-color: transparent;
-    }
+  > thead > tr > th,
+  > tbody > tr > th,
+  > tfoot > tr > th,
+  > thead > tr > td,
+  > tbody > tr > td,
+  > tfoot > tr > td {
+    border-color: transparent;
   }
-}
+ }
 
 // Forms ======================================================================
 
-.form-control {
-  @include box-shadow(inset 0 2px 0 rgba(0, 0, 0, 0.075));
+input,
+textarea {
+  color: $input-color;
 }
 
-label {
-  font-weight: normal;
+label,
+.radio label,
+.checkbox label,
+.help-block {
+  font-size: 12px;
+}
+
+.input-addon,
+.input-group-addon {
+  color: $text-color;
 }
 
 .has-warning {
@@ -228,14 +158,8 @@ label {
     color: $brand-warning;
   }
 
-  .form-control,
-  .form-control:focus {
-    border: 1px solid $brand-warning;
-    @include box-shadow(inset 0 2px 0 rgba(0, 0, 0, 0.075));
-  }
-
   .input-group-addon {
-    border: 1px solid $brand-warning;
+    border: none;
   }
 }
 
@@ -254,14 +178,8 @@ label {
     color: $brand-danger;
   }
 
-  .form-control,
-  .form-control:focus {
-    border: 1px solid $brand-danger;
-    @include box-shadow(inset 0 2px 0 rgba(0, 0, 0, 0.075));
-  }
-
   .input-group-addon {
-    border: 1px solid $brand-danger;
+    border: none;
   }
 }
 
@@ -280,14 +198,20 @@ label {
     color: $brand-success;
   }
 
-  .form-control,
-  .form-control:focus {
-    border: 1px solid $brand-success;
-    @include box-shadow(inset 0 2px 0 rgba(0, 0, 0, 0.075));
-  }
-
   .input-group-addon {
-    border: 1px solid $brand-success;
+    border: none;
+  }
+}
+
+.form-control:focus {
+  @include box-shadow(none);
+}
+
+.has-warning,
+.has-error,
+.has-success {
+  .form-control:focus {
+    @include box-shadow(none);
   }
 }
 
@@ -302,156 +226,49 @@ label {
 }
 
 .nav-tabs {
-
   > li > a {
-    margin-top: 6px;
-    border-color: $navbar-default-border;
-    color: $gray-dark;
-    @include transition(all 0.2s ease-in-out);
-  }
-
-  > li > a:hover,
-  > li > a:focus,
-  > li.active > a,
-  > li.active > a:hover,
-  > li.active > a:focus,
-  .open > a,
-  .open > a:hover,
-  .open > a:focus {
-    padding-bottom: ($padding-large-vertical + 3);
-    margin-top: 0;
-  }
-
-  .open > a,
-  .open > a:hover,
-  .open > a:focus {
-    border-color: $navbar-default-border;
-  }
-
-  > li.disabled > a:hover,
-  > li.disabled > a:focus {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-top: 6px;
-  }
-
-  &.nav-justified > li {
-    vertical-align: bottom;
+    color: $text-color;
   }
 }
 
-.dropdown-menu {
-  margin-top: 0;
-  @include shadow();
-  border-top-width: 1px;
-  @include box-shadow(none);
-}
-
-.breadcrumb {
-  border-color: darken($breadcrumb-bg, 5%);
-  border-style: solid;
-  @include shadow();
-}
-
-.pagination,
-.pager {
-
-  > li > a,
-  > li > span {
-    position: relative;
-    top: 0;
-    @include shadow();
-    color: $pagination-color;
-    font-size: 12px;
-    font-weight: bold;
-    text-transform: uppercase;
-
-    &:hover {
-      top: 1px;
-      border-bottom-width: 3px;
-    }
-
-    &:active {
-      top: 2px;
-      border-bottom-width: 2px;
-    }
-  }
-
-  > .disabled > a,
-  > .disabled > span {
-
-    &:hover {
-      top: 0;
-      @include shadow();
-    }
-
-    &:active {
-      top: 0;
-      @include shadow();
-    }
+.nav-pills {
+  > li > a {
+    color: $text-color;
   }
 }
 
 .pager {
-
-  > li > a,
-  > li > span,
-  > .disabled > a,
-  > .disabled > span {
-
-    &,
-    &:hover,
-    &:active {
-      border-left-width: 2px;
-      border-right-width: 2px;
-    }
+  a {
+    color: $text-color;
   }
 }
 
 // Indicators =================================================================
 
-.close {
+.alert {
   color: #fff;
-  text-decoration: none;
+
+  a,
+  .alert-link {
+    color: #fff;
+  }
+}
+
+.close {
   opacity: 0.4;
 
   &:hover,
   &:focus {
-    color: #fff;
     opacity: 1;
   }
 }
 
-.alert {
-  @include shadow();
-
-  .alert-link {
-    font-weight: normal;
-    color: #fff;
-    text-decoration: underline;
-  }
-}
-
-.label {
-  font-weight: normal;
-}
-
 // Progress bars ==============================================================
-
-.progress {
-  border: 1px solid $navbar-default-border;
-  @include box-shadow(inset 0 2px 0 rgba(0, 0, 0, 0.1));
-
-  &-bar {
-    @include box-shadow(inset 0 -4px 0 rgba(0, 0, 0, 0.15));
-  }
-}
 
 // Containers =================================================================
 
 .well {
-  border: 1px solid $navbar-default-border;
-  @include box-shadow(inset 0 2px 0 rgba(0, 0, 0, 0.05));
+  @include box-shadow(none);
 }
 
 a.list-group-item {
@@ -459,7 +276,7 @@ a.list-group-item {
   &.active,
   &.active:hover,
   &.active:focus {
-    border-color: $list-group-border;
+    border: none;
   }
 
   &-success {
@@ -496,28 +313,33 @@ a.list-group-item {
   }
 }
 
-.jumbotron {
-  border: 1px solid $navbar-default-border;
-  @include box-shadow(inset 0 2px 0 rgba(0, 0, 0, 0.05));
-}
-
 .panel {
-  border: 1px solid $navbar-default-border;
-  @include shadow();
+  border: none;
 
-  &-default {
-    .close {
-      color: $text-color;
-    }
-  }
-}
-
-.modal {
-  .close {
+  &-default > .panel-heading {
+    background-color: $table-bg-hover;
     color: $text-color;
   }
 }
 
+.thumbnail {
+  background-color: $well-bg;
+  border: none;
+}
+
+.modal {
+  padding: 0;
+
+  &-header,
+  &-footer {
+    background-color: $table-bg-hover;
+    border: none;
+    border-radius: 0;
+  }
+}
+
 .popover {
-  color: $text-color;
+  &-title {
+    border: none;
+  }
 }

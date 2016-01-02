@@ -14,10 +14,12 @@
     @Scripts.Render("~/Scripts/jquery-1.11.3.min.js")
     <!-- Bootstrap Core JavaScript -->
     @Scripts.Render("~/Scripts/bootstrap/bootstrap.min.js")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/Scripts/scrollButtons.js")
 
     @Styles.Render("~/Content/small-business.css")
     @Styles.Render("~/Content/general.css")
-    @Scripts.Render("~/Scripts/scrollButtons.js")
+    @Styles.Render("~/Content/themes/base/css")
 
     @*<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">*@
     @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>*@
@@ -28,9 +30,14 @@
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->    
+    <![endif]-->
+    <script>
+        $('#searchBoX').autocomplete({
+            source: '/Practica/Sugerencias'            
+        });
+    </script>
 </head>
-<body class="backimage alpha60">
+<body>
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
@@ -63,8 +70,8 @@
                     </li>
                 </ul>
                 <form class="navbar-form navbar-right" style="padding-top: 15px;" id=" form-search" role="search">
-                    <div class="form-group">
-                        <input type="text" class="form-control input-sm" placeholder="Buscar personaje...">
+                    <div class="form-group ui-widget">
+                        <input type="text" id="searchBoX" class="form-control input-sm" placeholder="Buscar personaje...">
                     </div>
                     <button type="submit" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-search"></span></button>
                 </form>
@@ -75,7 +82,7 @@
         </div>
         <!-- /.container -->
     </nav>
-    <div id="scrollButtonUp" style="position: fixed; padding-left: 95%; z-index: 9999; display: none;">
+    <div id="scrollButtonUp">
         <button class="btn btn-success" onclick="scrollToTop();"><span class="glyphicon glyphicon-arrow-up"></span></button>
     </div>
     <!-- Page Content -->
@@ -94,7 +101,7 @@
     </div>
     <!-- /.container -->
     
-    <div id="scrollButtonDown" style="position: fixed; padding-bottom: 1%; padding-left: 95%; padding-top: 5%; bottom: 10px;">
+    <div id="scrollButtonDown">
         <button class="btn btn-danger" onclick="scrollToDown();"><span class="glyphicon glyphicon-arrow-down"></span></button>
     </div>
 </body>
