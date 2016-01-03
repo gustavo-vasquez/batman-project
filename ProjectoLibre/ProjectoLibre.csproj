@@ -168,6 +168,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\general.css" />
+    <Content Include="Content\jqueryui\jquery-ui-1.9.2.custom.css" />
+    <Content Include="Content\jqueryui\jquery.ui.1.9.2.ie.css" />
     <Content Include="Content\modal-alert.css" />
     <Content Include="Content\validation-style.css" />
     <Content Include="favicon.ico" />

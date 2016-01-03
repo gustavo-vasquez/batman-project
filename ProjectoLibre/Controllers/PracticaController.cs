@@ -20,7 +20,12 @@ namespace ProjectoLibre.Controllers
             //busq.nombres = context.Heroes.Select(h => h.nombre).ToList();
             var result = (from r in context.Heroes
                           where r.nombre.ToLower().Contains(term.ToLower())
-                          select new { r.nombre }).Distinct();
+                          select new { r.nombre }
+                          ).Union(
+                          from s in context.Villanoes
+                          where s.nombre.ToLower().Contains(term.ToLower())
+                          select new { s.nombre });
+                          //.Distinct();
 
             return Json(result, JsonRequestBehavior.AllowGet);
             //return JsonConvert.SerializeObject(busq.nombres);
