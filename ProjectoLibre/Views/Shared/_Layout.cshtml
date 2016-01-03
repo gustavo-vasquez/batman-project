@@ -32,9 +32,66 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script>
-        $('#searchBoX').autocomplete({
-            source: '/Practica/Sugerencias'            
+        $(document).ready(function () {
+            $("#searchBoX").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "/Practica/Sugerencias",
+                        type: "GET",
+                        dataType: "json",
+                        data: { term: request.term },
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return { label: item.nombre, value: item.nombre };
+                            }))
+
+                        }
+                    })
+                },
+                messages: {
+                    noResults: "", results: ""
+                }
+            });
+        })
+
+    /*var nombres;
+
+        $.getJSON("/Practica/Sugerencias", function (data) {
+            //var algo2 = data.
+            var objetoJson = data.toString().split(",");
+            //alert(data.toString().split(',')[0]);
+            alert(objetoJson);
         });
+
+        $(function () {
+            var availableTags = [
+              "ActionScript",
+              "AppleScript",
+              "Asp",
+              "BASIC",
+              "C",
+              "C++",
+              "Clojure",
+              "COBOL",
+              "ColdFusion",
+              "Erlang",
+              "Fortran",
+              "Groovy",
+              "Haskell",
+              "Java",
+              "JavaScript",
+              "Lisp",
+              "Perl",
+              "PHP",
+              "Python",
+              "Ruby",
+              "Scala",
+              "Scheme"
+            ];
+            $("#searchBoX").autocomplete({
+                source: nombres
+            });
+        });*/
     </script>
 </head>
 <body>
