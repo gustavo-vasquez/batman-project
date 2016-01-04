@@ -49,17 +49,19 @@ namespace ProjectoLibre.Controllers
         }
 
         [HttpPost]
-        public ActionResult Buscador(string texto)
-        {
+        public ActionResult Buscador(string nombreABuscar)
+        {            
             BibliotecaDBEntities context = new BibliotecaDBEntities();
             var personaje = (dynamic)null;
-            personaje = context.Heroes.FirstOrDefault(h => h.nombre == texto);
+            personaje = context.Heroes.FirstOrDefault(h => h.nombre == nombreABuscar);
+            ViewBag.tipo = "heroe";
 
-            if (personaje == null)
-                personaje = context.Villanoes.FirstOrDefault(h => h.nombre == texto);
-
-
-            return RedirectToAction("Trailer");
+            if (personaje == null) {
+                personaje = context.Villanoes.FirstOrDefault(h => h.nombre == nombreABuscar);
+                ViewBag.tipo = "villano";
+            }
+            
+            return PartialView("_ResultadoBusqueda", new ResultadoTipoDato(personaje));
         }
 
     }

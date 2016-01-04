@@ -10,21 +10,18 @@
     <title>Gotham City Project</title>
     <!-- Bootstrap Core CSS -->
     @Styles.Render("~/Content/bootstrap/bootstrap.min.css")
+    @Styles.Render("~/Content/themes/base/css")
+    @Styles.Render("~/Content/jqueryui/jquery.ui.1.9.2.ie.css")
+
+    @Styles.Render("~/Content/general.css")
+    @Styles.Render("~/Content/small-business.css")       
+    
     <!-- jQuery -->
     @Scripts.Render("~/Scripts/jquery-1.11.3.min.js")
     <!-- Bootstrap Core JavaScript -->
     @Scripts.Render("~/Scripts/bootstrap/bootstrap.min.js")
     @Scripts.Render("~/bundles/jqueryui")
-    @Scripts.Render("~/Scripts/scrollButtons.js")
-
-    @Styles.Render("~/Content/small-business.css")
-    @Styles.Render("~/Content/general.css")
-    @Styles.Render("~/Content/themes/base/css")
-    @Styles.Render("~/Content/jqueryui/jquery.ui.1.9.2.ie.css")
-
-    @*<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">*@
-    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>*@
-    @*<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>*@
+    @Scripts.Render("~/Scripts/scrollButtons.js")    
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -86,7 +83,16 @@
             <div class="row">
                 <div class="col-lg-12">
                     <hr />
-                    <p>Copyright &copy; @DateTime.Now.Year Batman Enterprises</p>                    
+                    <p>Copyright &copy; @DateTime.Now.Year Batman Enterprises
+                        <span class="sidebox sidebox-social">                       
+                            <a class="sm-rss" href="http://feeds.feedburner.com/Crunchify" rel="external" target="_blank" title="Subscribirse">RSS Feed</a>
+                            <a class="sm-goo" href="https://plus.google.com/u/0/" rel="publisher" target="_blank" title="Perfil de Google+">Google+</a>
+                            <a class="sm-fac" href="https://www.facebook.com/" target="_blank" title="Perfil de Facebook">Facebook</a>
+                            <a class="sm-twi" href="http://twitter.com" target="_blank" title="Perfil de Twitter">Twitter</a>
+                            <a class="sm-wor" href="http://profiles.wordpress.org/crunchify/" target="_blank" title="Perfil de WordPress">WordPress.org</a>
+                            <span class="text-right pull-right"> Seguínos en: </span>
+                        </span>
+                    </p>
                 </div>
             </div>
         </footer>

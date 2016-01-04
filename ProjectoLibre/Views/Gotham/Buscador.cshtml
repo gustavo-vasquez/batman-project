@@ -64,8 +64,7 @@
 
 <form action="@Url.Action("Buscador", "Gotham")" method="post" class="navbar-form navbar-right" style="padding-top: 15px;" id="form-search" role="search">
     <div class="form-group ui-widget">
-        @Html.TextBoxFor(b => b.nombreABuscar, new { @class = "form-control input-sm clearable", placeholder = "Buscar personaje..." })
-        @*<input type="text" id="searchBoX" class="form-control input-sm clearable" placeholder="Buscar personaje...">*@
+        @Html.TextBoxFor(b => b.nombreABuscar, new { @class = "form-control input-sm clearable", placeholder = "Buscar personaje..." })        
     </div>
     <button type="submit" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-search"></span></button>
 </form>

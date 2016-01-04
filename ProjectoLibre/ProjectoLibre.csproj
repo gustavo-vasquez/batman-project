@@ -161,6 +161,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PersonajesGotham.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\ResultadoTipoDato.cs" />
     <Compile Include="Models\Villano.cs">
       <DependentUpon>PersonajesGotham.tt</DependentUpon>
     </Compile>
@@ -168,6 +169,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\social\crunchify-follow-sprite.png" />
+    <Content Include="Images\social\social-media-sprite.png" />
     <Content Include="Scripts\fileStyle\bootstrap-filestyle.js" />
     <Content Include="Scripts\fileStyle\bootstrap-filestyle.min.js" />
     <Content Include="Content\general.css" />
@@ -321,6 +324,7 @@
     <Content Include="Views\Practica\VerJson.cshtml" />
     <Content Include="Views\Gotham\Tabs.cshtml" />
     <Content Include="Views\Gotham\Buscador.cshtml" />
+    <Content Include="Views\Gotham\_ResultadoBusqueda.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -15,3 +15,7 @@ git status
 git commit -m "Barra de busqueda con heroes y villanos, aplicado estilo"
 git push batman nightly
 exit
+git add .
+git commit -m "Agregada funcionalidad a la barra de busqueda (falta la vista que va a mostrar la informacion luego del POST)"
+git push batman nightly
+exit
