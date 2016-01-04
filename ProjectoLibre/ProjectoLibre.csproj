@@ -139,6 +139,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Buscador.cs" />
     <Compile Include="Models\Busqueda.cs" />
     <Compile Include="Models\Heroe.cs">
       <DependentUpon>PersonajesGotham.tt</DependentUpon>
@@ -167,6 +168,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\fileStyle\bootstrap-filestyle.js" />
+    <Content Include="Scripts\fileStyle\bootstrap-filestyle.min.js" />
     <Content Include="Content\general.css" />
     <Content Include="Content\jqueryui\jquery-ui-1.9.2.custom.css" />
     <Content Include="Content\jqueryui\jquery.ui.1.9.2.ie.css" />
@@ -317,6 +320,7 @@
     <Content Include="Views\Heroe\Eliminar.cshtml" />
     <Content Include="Views\Practica\VerJson.cshtml" />
     <Content Include="Views\Gotham\Tabs.cshtml" />
+    <Content Include="Views\Gotham\Buscador.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

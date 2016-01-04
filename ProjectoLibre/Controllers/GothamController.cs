@@ -41,7 +41,26 @@ namespace ProjectoLibre.Controllers
         {
             return View();
         }
+        
+        public ActionResult Buscador()
+        {
+            Buscador modelo = new Buscador();
+            return PartialView(modelo);
+        }
 
+        [HttpPost]
+        public ActionResult Buscador(string texto)
+        {
+            BibliotecaDBEntities context = new BibliotecaDBEntities();
+            var personaje = (dynamic)null;
+            personaje = context.Heroes.FirstOrDefault(h => h.nombre == texto);
+
+            if (personaje == null)
+                personaje = context.Villanoes.FirstOrDefault(h => h.nombre == texto);
+
+
+            return RedirectToAction("Trailer");
+        }
 
     }
 }

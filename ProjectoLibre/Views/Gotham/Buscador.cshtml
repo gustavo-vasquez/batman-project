@@ -1,0 +1,71 @@
+﻿@model ProjectoLibre.Models.Buscador
+
+<script>
+    $(document).ready(function () {
+        $("#nombreABuscar").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: "/Practica/Sugerencias",
+                    type: "GET",
+                    dataType: "json",
+                    data: { term: request.term },
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            return { label: item.nombre, value: item.nombre };
+                        }))
+
+                    }
+                })
+            },
+            messages: {
+                noResults: "", results: ""
+            }
+        });
+    })
+
+    function tog(v) { return v ? 'addClass' : 'removeClass'; }
+    $(document).on('input', '.clearable', function () {
+        $(this)[tog(this.value)]('x');
+    }).on('mousemove', '.x', function (e) {
+        $(this)[tog(this.offsetWidth - 18 < e.clientX - this.getBoundingClientRect().left)]('onX');
+    }).on('touchstart click', '.onX', function (ev) {
+        ev.preventDefault();
+        $(this).removeClass('x onX').val('').change();
+    });
+
+    // $('.clearable').trigger("input");
+    // Uncomment the line above if you pre-fill values from LS or server
+</script>
+<style>
+    .clearable {
+        background: #fff url(http://i.stack.imgur.com/mJotv.gif) no-repeat right -10px center;
+        border: 1px solid #999;
+        padding: 3px 18px 3px 4px; /* Use the same right padding (18) in jQ! */
+        /*border-radius: 3px;*/
+        transition: background 0.4s;
+    }
+
+        .clearable.x {
+            background-position: right 5px center;
+        }
+        /* (jQ) Show icon */
+        .clearable.onX {
+            cursor: pointer;
+        }
+        /* (jQ) hover cursor style */
+        .clearable::-ms-clear {
+            display: none;
+            width: 0;
+            height: 0;
+        }
+    /* Remove IE default X */
+</style>
+
+
+<form action="@Url.Action("Buscador", "Gotham")" method="post" class="navbar-form navbar-right" style="padding-top: 15px;" id="form-search" role="search">
+    <div class="form-group ui-widget">
+        @Html.TextBoxFor(b => b.nombreABuscar, new { @class = "form-control input-sm clearable", placeholder = "Buscar personaje..." })
+        @*<input type="text" id="searchBoX" class="form-control input-sm clearable" placeholder="Buscar personaje...">*@
+    </div>
+    <button type="submit" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-search"></span></button>
+</form>
