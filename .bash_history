@@ -19,3 +19,8 @@ git add .
 git commit -m "Agregada funcionalidad a la barra de busqueda (falta la vista que va a mostrar la informacion luego del POST)"
 git push batman nightly
 exit
+git add .
+git status
+git commit -m "agregado botones sociales y mejorado funcionalidad a la busqueda (falta checkear tipo Heroe/Villano) en el modelo"
+git push batman nightly
+exit

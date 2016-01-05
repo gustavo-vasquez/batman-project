@@ -60,6 +60,11 @@ namespace ProjectoLibre.Controllers
                 personaje = context.Villanoes.FirstOrDefault(h => h.nombre == nombreABuscar);
                 ViewBag.tipo = "villano";
             }
+
+            //if (personaje == null)
+            //{
+            //    return ?????????????? 
+            //}
             
             return PartialView("_ResultadoBusqueda", new ResultadoTipoDato(personaje));
         }

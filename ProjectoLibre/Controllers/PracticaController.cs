@@ -16,8 +16,7 @@ namespace ProjectoLibre.Controllers
         public JsonResult Sugerencias(string term)
         {
             BibliotecaDBEntities context = new BibliotecaDBEntities();
-            //Busqueda busq = new Busqueda();
-            //busq.nombres = context.Heroes.Select(h => h.nombre).ToList();
+            
             var result = (from r in context.Heroes
                           where r.nombre.ToLower().Contains(term.ToLower())
                           select new { r.nombre }
@@ -28,8 +27,6 @@ namespace ProjectoLibre.Controllers
                           //.Distinct();
 
             return Json(result, JsonRequestBehavior.AllowGet);
-            //return JsonConvert.SerializeObject(busq.nombres);
-            //return busq.nombres.ToArray();
         }
 
         public string VerFecha()

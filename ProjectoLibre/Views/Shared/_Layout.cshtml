@@ -14,7 +14,8 @@
     @Styles.Render("~/Content/jqueryui/jquery.ui.1.9.2.ie.css")
 
     @Styles.Render("~/Content/general.css")
-    @Styles.Render("~/Content/small-business.css")       
+    @Styles.Render("~/Content/small-business.css")   
+
     
     <!-- jQuery -->
     @Scripts.Render("~/Scripts/jquery-1.11.3.min.js")
@@ -22,6 +23,7 @@
     @Scripts.Render("~/Scripts/bootstrap/bootstrap.min.js")
     @Scripts.Render("~/bundles/jqueryui")
     @Scripts.Render("~/Scripts/scrollButtons.js")    
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -72,19 +74,20 @@
         <!-- /.container -->
     </nav>
     <div id="scrollButtonUp">
-        <button class="btn btn-default" onclick="scrollToTop();"><span class="glyphicon glyphicon-arrow-up"></span></button>
+        <button class="btn-sm btn-default" onclick="scrollToTop();"><span class="glyphicon glyphicon-arrow-up"></span></button>
     </div>
     <!-- Page Content -->
     <div class="container">
-        @RenderBody()        
+        @RenderBody()
 
         <!-- Footer -->
         <footer>
             <div class="row">
                 <div class="col-lg-12">
                     <hr />
-                    <p>Copyright &copy; @DateTime.Now.Year Batman Enterprises
-                        <span class="sidebox sidebox-social">                       
+                    <p>
+                        Copyright &copy; @DateTime.Now.Year Batman Enterprises
+                        <span class="sidebox sidebox-social">
                             <a class="sm-rss" href="http://feeds.feedburner.com/Crunchify" rel="external" target="_blank" title="Subscribirse">RSS Feed</a>
                             <a class="sm-goo" href="https://plus.google.com/u/0/" rel="publisher" target="_blank" title="Perfil de Google+">Google+</a>
                             <a class="sm-fac" href="https://www.facebook.com/" target="_blank" title="Perfil de Facebook">Facebook</a>
@@ -100,7 +103,7 @@
     <!-- /.container -->
 
     <div id="scrollButtonDown">
-        <button class="btn btn-default" onclick="scrollToDown();"><span class="glyphicon glyphicon-arrow-down"></span></button>
+        <button class="btn-sm btn-default" onclick="scrollToDown();"><span class="glyphicon glyphicon-arrow-down"></span></button>
     </div>
 </body>
 </html>
