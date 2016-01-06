@@ -1,6 +1,5 @@
 ﻿@model ProjectoLibre.Models.Heroe
 
-@*@using (Html.BeginForm(null, null, FormMethod.Post, new {enctype = "multipart/form-data" }))*@
 @Scripts.Render("~/Scripts/ajaxFormFix.js")
 @Scripts.Render("~/Scripts/fileStyle/bootstrap-filestyle.min.js")
 
@@ -29,9 +28,10 @@
 
 @using (Ajax.BeginForm("Crear", "Heroe", null, new AjaxOptions() { UpdateTargetId = "DivHeroe", HttpMethod = "POST" }, new { enctype = "multipart/form-data", @class = "form-horizontal", role = "form" }))
 {
+    
     @Html.AntiForgeryToken()
     @*@Html.ValidationSummary(true)*@
-
+    
     <fieldset class="col-lg-7">
         <legend>Heroe</legend>
 
@@ -67,6 +67,11 @@
             <label class="control-label col-sm-2">Avatar del personaje:</label>
 
             <div class="col-sm-7">
+                @Html.TextBoxFor(h => h.file, new { type = "file", @class = "btn btn-default" })
+                @Html.ValidationMessageFor(h => h.file, null, new { @class = "validations" })
+            </div>
+
+            @*<div class="col-sm-7">
                 @Html.TextBoxFor(h => h.file, 
                 new { 
                     type = "file",
@@ -77,7 +82,7 @@
                 })
 
                 @Html.ValidationMessageFor(h => h.file, null, new { @class = "validations" })                
-            </div>
+            </div>*@
         </div>
 
         <div class="vert"></div>
@@ -91,28 +96,3 @@
 
 </fieldset>
 }
-
-<input type="hidden" value="@ViewBag.submitSuccess" id="checkedForm" />
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" role="dialog">
-    <div class="vertical-alignment-helper">
-        <div class="modal-dialog vertical-align-center">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" onclick="document.location = '@Url.Action("Portada", "Gotham")';">&times;</button>
-                    <h4 class="modal-title">Operación exitosa <span class="glyphicon glyphicon-ok-circle"></span></h4>
-                </div>
-                <div class="modal-body">
-                    <p>El personaje se ha creado correctamente.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="document.location = '@Url.Action("Portada", "Gotham")';">Cerrar</button>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>

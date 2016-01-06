@@ -1,35 +1,86 @@
 ﻿@model ProjectoLibre.Models.Villano
 
-@using (Html.BeginForm())
+@Scripts.Render("~/Scripts/ajaxFormFix.js")
+@Scripts.Render("~/Scripts/fileStyle/bootstrap-filestyle.min.js")
+
+<style>
+    .btn-file {
+        position: relative;
+        overflow: hidden;
+    }
+
+        .btn-file input[type=file] {
+            position: absolute;
+            top: 0;
+            right: 0;
+            min-width: 100%;
+            min-height: 100%;
+            font-size: 100px;
+            text-align: right;
+            filter: alpha(opacity=0);
+            opacity: 0;
+            outline: none;
+            background: white;
+            cursor: inherit;
+            display: block;
+        }
+</style>
+
+@using (Ajax.BeginForm("Crear", "Villano", null, new AjaxOptions() { UpdateTargetId = "DivVillano", HttpMethod = "POST" }, new { enctype = "multipart/form-data", @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
+    @*@Html.ValidationSummary(true)*@
 
-    <fieldset>
+    <fieldset class="col-lg-7">
         <legend>Villano</legend>
 
-        <div class="editor-label">
-            <p>Nombre:</p>
-        </div>
-        <div class="editor-field">
-            @Html.TextBoxFor(v => v.nombre)
-            @Html.ValidationMessageFor(v => v.nombre)
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="nombre">Nombre:</label>
+
+            <div class="col-sm-7">
+                @Html.TextBoxFor(v => v.nombre,
+                new
+                {
+                    @class = "form-control",
+                    placeholder = "Ingrese nombre..."
+                })
+
+                @Html.ValidationMessageFor(v => v.nombre, null, new { @class = "validations" })
+            </div>
         </div>
 
-        <div class="editor-label">
-            <p>Amenaza:</p>
-        </div>
-        <div class="editor-field">
-            @Html.TextBoxFor(v => v.amenaza)
-            @Html.ValidationMessageFor(v => v.amenaza)
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="habilidad">Amenaza:</label>
+
+            <div class="col-sm-7">
+                @Html.TextBoxFor(v => v.amenaza,
+                new
+                {
+                    @class = "form-control",
+                    placeholder = "Ingrese habilidad..."
+                })
+
+                @Html.ValidationMessageFor(v => v.amenaza, null, new { @class = "validations" })
+            </div>
         </div>
 
-        <p>
-            <input type="submit" value="Create" />
-        </p>
+        <div class="form-group">
+            <label class="control-label col-sm-2">Avatar del personaje:</label>
+
+            <div class="col-sm-7">
+                @Html.TextBoxFor(v => v.file, new { type = "file", @class = "btn btn-default" })
+                @Html.ValidationMessageFor(v => v.file, null, new { @class = "validations" })
+            </div>
+        </div>
+
+        <div class="vert"></div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-success">Crear personaje</button>
+                <button type="button" class="btn btn-danger" onclick="document.location = '@Url.Action("Portada", "Gotham")';">Cancelar</button>
+            </div>
+        </div>
+
     </fieldset>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Personajes", "Gotham")
-</div>

@@ -23,13 +23,13 @@ namespace ProjectoLibre.Models
 
         public ResultadoTipoDato(object personaje)
         {
-            if (personaje != null)
+            if (personaje is Heroe)
             {
                 heroeModel = (Heroe)personaje;                
             }
             else
             {
-                villanoModel = (Villano)personaje;                      
+                villanoModel = (Villano)personaje;                    
             }
         }
 

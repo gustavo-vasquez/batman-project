@@ -305,6 +305,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\music.js" />
     <Content Include="Scripts\phraseText.js" />
+    <Content Include="Scripts\previewModal.js" />
     <Content Include="Scripts\scrollButtons.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
@@ -330,6 +331,9 @@
     <Content Include="Views\Gotham\Tabs.cshtml" />
     <Content Include="Views\Gotham\Buscador.cshtml" />
     <Content Include="Views\Gotham\_ResultadoBusqueda.cshtml" />
+    <Content Include="Views\Shared\_Resultado.cshtml" />
+    <Content Include="Views\Villano\Editar.cshtml" />
+    <Content Include="Views\Villano\Eliminar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

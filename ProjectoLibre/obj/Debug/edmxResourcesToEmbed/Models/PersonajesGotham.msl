@@ -15,6 +15,8 @@
     <EntitySetMapping Name="Villanoes">
       <EntityTypeMapping TypeName="BibliotecaDBModel.Villano">
         <MappingFragment StoreEntitySet="Villano">
+          <ScalarProperty Name="imagenData" ColumnName="imagenData" />
+          <ScalarProperty Name="imagenName" ColumnName="imagenName" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="amenaza" ColumnName="amenaza" />

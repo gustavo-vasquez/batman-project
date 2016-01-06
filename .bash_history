@@ -24,3 +24,8 @@ git status
 git commit -m "agregado botones sociales y mejorado funcionalidad a la busqueda (falta checkear tipo Heroe/Villano) en el modelo"
 git push batman nightly
 exit
+git add .
+git status
+git commit -m "aplicado estilo al scrollbar y corregida la busqueda cuando el personaje no tiene imagen"
+git push batman nightly
+exit

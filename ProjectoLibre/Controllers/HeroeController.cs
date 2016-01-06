@@ -81,7 +81,7 @@ namespace ProjectoLibre.Controllers
                     context.SaveChanges();
                     context.Dispose();
 
-                    return PartialView("Resultado");
+                    return PartialView("_Resultado");
                 }
 
                 return PartialView(registro);
