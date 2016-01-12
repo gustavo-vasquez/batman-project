@@ -4,10 +4,29 @@
     ViewBag.Title = "Editar";
 }
 
-@Scripts.Render("~/bundles/jqueryval")
 @Styles.Render("~/Content/validation-style.css")
-@Scripts.Render("~/Scripts/checksubmit.js")
 @Styles.Render("~/Content/modal-alert.css")
+
+@Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/Scripts/jquery.ui.datepicker-es.js")
+@*@Scripts.Render("~/Scripts/datepicker.js")*@
+@Scripts.Render("~/Scripts/checksubmit.js")
+
+<style>
+    div.ui-datepicker {
+        font-size: 16px;
+    }
+</style>
+
+<script>
+    $(function () {
+        $("#fechaNacimiento").datepicker({
+            //showButtonPanel: true,
+            showAnim: "fold"
+            //minDate: 0
+        });
+    });
+</script>
 
 <h2 class="text-uppercase">Editar personaje</h2>
 <div class="col-xs-12 vert"></div>
@@ -36,6 +55,21 @@
             <div class="col-sm-7">
                 @Html.TextBoxFor(h => h.habilidad, new { @class = "form-control" })
                 @Html.ValidationMessageFor(h => h.habilidad, null, new { @class = "validations" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="fechaNacimiento">Año de nacimiento:</label>            
+
+            <div class="col-sm-7">
+                @Html.TextBoxFor(h => h.fechaNacimiento,
+                new
+                {
+                    @class = "form-control",
+                    placeholder = "Elegir fecha..."
+                })
+
+                @Html.ValidationMessageFor(h => h.fechaNacimiento, null, new { @class = "validations" })
             </div>
         </div>
 
@@ -83,7 +117,7 @@
     <!-- Trigger the modal with a button -->
     @*<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-backdrop="static" data-target="#myModal">Open Modal</button>*@
 
-    <input type="hidden" value="@ViewBag.submitSuccess" id="checkedForm" />
+    <input type="hidden" value="@ViewBag.submitSuccess" id="successHidden" />
     
     <!-- Modal -->
     <div class="modal fade" id="editSuccess" role="dialog">

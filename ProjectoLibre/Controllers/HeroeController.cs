@@ -58,17 +58,6 @@ namespace ProjectoLibre.Controllers
                             data = binaryReader.ReadBytes(archivo.ContentLength);
                         }
 
-                        // Save to server
-
-                        //registro.file.SaveAs(Path.Combine(Server.MapPath("~/Images/avatars"), Path.GetFileName(registro.file.FileName)));
-
-                        //string destPath = Path.Combine(Server.MapPath("~/Images/avatars"), Path.GetFileName(registro.file.FileName));
-                        //var fileStream = new FileStream(destPath, FileMode.Create, FileAccess.Write);
-                        //fileStream.CopyTo(fileStream);
-
-
-                        //registro.file.SaveAs(path);
-
                         // Save to database
                         registro.imagenName = fileName;
                         registro.imagenData = data;
@@ -152,6 +141,8 @@ namespace ProjectoLibre.Controllers
                         heroeModificado.imagenName = registro.imagenName;
                         heroeModificado.imagenData = registro.imagenData;
                     }
+
+                    heroeModificado.fechaNacimiento = registro.fechaNacimiento;
                     
                     context.SaveChanges();
                     context.Dispose();
@@ -203,11 +194,6 @@ namespace ProjectoLibre.Controllers
             {
                 return View();
             }
-        }
-
-        public ActionResult Resultado()
-        {
-            return View();
         }
     }
 }

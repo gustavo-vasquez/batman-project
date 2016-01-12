@@ -44,29 +44,33 @@ namespace ProjectoLibre.Controllers
         
         public ActionResult Buscador()
         {
-            Buscador modelo = new Buscador();
-            return PartialView(modelo);
+            //Buscador modelo = new Buscador();
+            return PartialView();
         }
 
         [HttpPost]
         public ActionResult Buscador(string nombreABuscar)
-        {            
-            BibliotecaDBEntities context = new BibliotecaDBEntities();
-            var personaje = (dynamic)null;
-            personaje = context.Heroes.FirstOrDefault(h => h.nombre == nombreABuscar);
-            ViewBag.tipo = "heroe";
+        {
+            try
+            {
+                BibliotecaDBEntities context = new BibliotecaDBEntities();
+                var personaje = (dynamic)null;
+                personaje = context.Heroes.FirstOrDefault(h => h.nombre == nombreABuscar);
+                ViewBag.EsHeroe = true;
 
-            if (personaje == null) {
-                personaje = context.Villanoes.FirstOrDefault(h => h.nombre == nombreABuscar);
-                ViewBag.tipo = "villano";
+                if (personaje == null)
+                {
+                    personaje = context.Villanoes.FirstOrDefault(h => h.nombre == nombreABuscar);
+                    ViewBag.EsHeroe = false;
+                }
+
+                return PartialView("_ResultadoBusqueda", new ResultadoTipoDato(personaje));
             }
 
-            //if (personaje == null)
-            //{
-            //    return ?????????????? 
-            //}
-            
-            return PartialView("_ResultadoBusqueda", new ResultadoTipoDato(personaje));
+            catch
+            {
+                return PartialView();
+            }
         }
 
     }

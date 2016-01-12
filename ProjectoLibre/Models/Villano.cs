@@ -19,5 +19,6 @@ namespace ProjectoLibre.Models
         public string amenaza { get; set; }
         public string imagenName { get; set; }
         public byte[] imagenData { get; set; }
+        public Nullable<System.DateTime> fechaNacimiento { get; set; }
     }
 }

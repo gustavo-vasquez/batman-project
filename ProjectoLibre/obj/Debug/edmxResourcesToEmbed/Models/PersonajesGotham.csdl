@@ -9,6 +9,7 @@
     <Property Name="habilidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="imagenName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="imagenData" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="fechaNacimiento" Type="DateTime" Precision="0" />
   </EntityType>
   <EntityType Name="Villano">
     <Key>
@@ -19,6 +20,7 @@
     <Property Name="amenaza" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="imagenName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="imagenData" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="fechaNacimiento" Type="DateTime" Precision="0" />
   </EntityType>
   <EntityContainer Name="BibliotecaDBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Heroes" EntityType="Self.Heroe" />

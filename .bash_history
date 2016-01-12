@@ -29,3 +29,8 @@ git status
 git commit -m "aplicado estilo al scrollbar y corregida la busqueda cuando el personaje no tiene imagen"
 git push batman nightly
 exit
+git add .
+git status
+git commit -m "implementado crud para villano, problema modal preview y editar: se superponen"
+git push batman nightly
+exit

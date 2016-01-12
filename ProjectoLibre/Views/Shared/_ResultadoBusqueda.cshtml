@@ -1,0 +1,101 @@
+﻿@model ProjectoLibre.Models.ResultadoTipoDato
+
+@Styles.Render("~/Content/bootstrap/bootstrap.min.css")
+@Scripts.Render("~/Scripts/jquery-1.11.3.min.js")
+@Scripts.Render("~/Scripts/bootstrap/bootstrap.min.js")
+@Scripts.Render("~/Scripts/previewModal.js")
+@Styles.Render("~/Content/modal-alert.css")
+
+@*@if(1==2)
+{*@ 
+<div>
+    <!-- Modal -->
+    <div class="modal fade" id="dialogPreview" role="dialog">
+        <div class="vertical-alignment-helper">
+            <div class="modal-dialog vertical-align-center">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" onclick="document.location = '@Url.Action("Portada", "Gotham")';">&times;</button>
+                        <h4 class="modal-title"><span class="glyphicon glyphicon-picture"></span> Vista de personaje</h4>
+                    </div>
+                    <div class="modal-body">                        
+                                <div class="container">                                                            
+                                    @{
+                                        if (ViewBag.EsHeroe)
+                                        {
+                                            var modelo = Model.heroeModel;                     
+                                            
+                                            if (modelo.imagenData != null)
+                                            {                                                                                      
+                                                var base64 = Convert.ToBase64String(modelo.imagenData);
+                                                var imgSrc = String.Format("data:image/jpg;base64,{0}", base64);
+                                                
+                                                <div class="col-md-3">
+                                                    <img src='@imgSrc' class="img-responsive img-thumbnail" alt="avatar" width="250" />
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="col-md-3">
+                                                    <img src="~/Images/not_found.gif" class="img-thumbnail" alt="default" width="250" />
+                                                </div>
+                                            }
+                                    
+                                
+                                            <div class="col-md-2">
+                                                <h3>Nombre: </h3>
+                                                <p><span class="glyphicon glyphicon-user"></span> @modelo.nombre</p>
+
+                                                <h3>Habilidad: </h3>
+                                                <p><span class="glyphicon glyphicon-flash"></span> @modelo.habilidad</p>
+                                            </div>            
+                                        }
+                                        else
+                                        {
+                                            var modelo = Model.villanoModel;                     
+                                            
+                                            if (modelo.imagenData != null)
+                                            {                                                                                      
+                                                var base64 = Convert.ToBase64String(modelo.imagenData);
+                                                var imgSrc = String.Format("data:image/jpg;base64,{0}", base64);
+                                                
+                                                <div class="col-md-3">
+                                                    <img src='@imgSrc' class="img-responsive img-thumbnail" alt="avatar" width="250" />
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="col-md-3">
+                                                    <img src="~/Images/not_found.gif" class="img-thumbnail" alt="default" width="250" />
+                                                </div>
+                                            }
+                                    
+                                
+                                            <div class="col-md-2">
+                                                <h3>Nombre: </h3>
+                                                <p><span class="glyphicon glyphicon-user"></span> @modelo.nombre</p>
+
+                                                <h3>Amenaza: </h3>
+                                                <p><span class="glyphicon glyphicon-flash"></span> @modelo.amenaza</p>
+                                            </div>            
+                                        }
+                                        
+                                        
+                                    }
+                                </div>
+                                                                            
+                    </div>
+                    <div class="modal-footer">                                                   
+                            <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="document.location = '@Url.Action("Portada", "Gotham")';">Cerrar</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+@*}*@

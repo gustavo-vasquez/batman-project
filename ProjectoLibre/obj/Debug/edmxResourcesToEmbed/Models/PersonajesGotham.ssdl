@@ -9,6 +9,7 @@
     <Property Name="habilidad" Type="varchar" MaxLength="50" />
     <Property Name="imagenName" Type="varchar" MaxLength="200" />
     <Property Name="imagenData" Type="varbinary(max)" />
+    <Property Name="fechaNacimiento" Type="date" />
   </EntityType>
   <EntityType Name="Villano">
     <Key>
@@ -19,6 +20,7 @@
     <Property Name="amenaza" Type="varchar" MaxLength="50" />
     <Property Name="imagenName" Type="varchar" MaxLength="200" />
     <Property Name="imagenData" Type="varbinary(max)" />
+    <Property Name="fechaNacimiento" Type="date" />
   </EntityType>
   <EntityContainer Name="BibliotecaDBModelStoreContainer">
     <EntitySet Name="Heroe" EntityType="Self.Heroe" Schema="dbo" store:Type="Tables" />

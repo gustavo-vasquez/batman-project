@@ -1,7 +1,11 @@
 ﻿@model ProjectoLibre.Models.Heroe
 
+@Styles.Render("~/Content/jqueryui/jquery-ui.css")
+@Scripts.Render("~/Scripts/jquery-1.11.3.min.js")
+@Scripts.Render("~/bundles/jqueryui")
 @Scripts.Render("~/Scripts/ajaxFormFix.js")
-@Scripts.Render("~/Scripts/fileStyle/bootstrap-filestyle.min.js")
+@Scripts.Render("~/Scripts/datepicker.js")
+@*@Scripts.Render("~/Scripts/fileStyle/bootstrap-filestyle.min.js")*@
 
 <style>
     .btn-file {
@@ -64,6 +68,22 @@
         </div>
 
         <div class="form-group">
+            <label class="control-label col-sm-2" for="habilidad">Año de nacimiento:</label>
+
+            <div class="col-sm-7">
+                @Html.TextBoxFor(h => h.fechaNacimiento,
+                new
+                {
+                    id = "fechaNac",
+                    @class = "form-control",
+                    placeholder = "Elegir fecha..."
+                })
+
+                @Html.ValidationMessageFor(h => h.fechaNacimiento, null, new { @class = "validations" })
+            </div>
+        </div>
+
+        <div class="form-group">
             <label class="control-label col-sm-2">Avatar del personaje:</label>
 
             <div class="col-sm-7">
@@ -89,7 +109,7 @@
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-success">Crear personaje</button>
+                <button type="submit" class="btn btn-success">Crear personaje</button>                
                 <button type="button" class="btn btn-danger" onclick="document.location = '@Url.Action("Portada", "Gotham")';">Cancelar</button>
             </div>                            
         </div>

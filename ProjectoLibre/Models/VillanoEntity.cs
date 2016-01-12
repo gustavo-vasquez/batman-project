@@ -27,6 +27,9 @@ namespace ProjectoLibre.Models
 
         public string imagenName { get; set; }
         public byte[] imagenData { get; set; }
+
+        [Required(ErrorMessage = "*Debe elegir una fecha de nacimiento")]
+        public DateTime fechaNacimiento { get; set; }
     }
 
     //public class FileSizeAttribute : ValidationAttribute

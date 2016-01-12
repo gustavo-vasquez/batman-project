@@ -1,4 +1,11 @@
-﻿.backimage {
+﻿::selection {
+  background: #76cea8; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #76cea8; /* Gecko Browsers */
+}
+
+.backimage {
      background-image: url(http://api.thumbr.it/whitenoise-361x370.png?background=2b3d50ff&noise=626262&density=55&opacity=41);
      /*background-position: center;
      background-repeat: no-repeat;

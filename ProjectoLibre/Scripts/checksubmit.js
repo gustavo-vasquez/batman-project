@@ -1,11 +1,11 @@
 ﻿$(document).ready(function () {
-    if ($("#checkedForm").val()) {
+    if ($("#successHidden").val()) {
         $('#editSuccess').modal({
             keyboard: false,
             autoshow: false,
             backdrop: "static"
         })
         $('#editSuccess').modal('show');
-        $("#checkedForm").val("false");
+        $("#successHidden").val("false");
     }
 });

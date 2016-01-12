@@ -33,5 +33,10 @@ namespace ProjectoLibre.Models
             }
         }
 
+        public bool isEmpty()
+        {
+            return (this._heroeModel == null && this._villanoModel == null);
+        }
+
     }
 }
