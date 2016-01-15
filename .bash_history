@@ -34,3 +34,8 @@ git status
 git commit -m "implementado crud para villano, problema modal preview y editar: se superponen"
 git push batman nightly
 exit
+git add .
+git commit -m "Corregida la vista parcial de la busqueda y agregado datepicker"
+git status
+git push batman nightly
+exit

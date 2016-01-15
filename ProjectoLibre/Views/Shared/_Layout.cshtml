@@ -8,17 +8,19 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Gotham City Project</title>
-    <!-- Bootstrap Core CSS -->
-    @*@Styles.Render("~/Content/themes/base/css")*@
-    @Styles.Render("~/Content/themes/base/css")    
-    @Styles.Render("~/Content/general.css")
+    <!-- Bootstrap Core CSS -->    
+    @*@Styles.Render("~/Content/themes/base/css")*@    
+    @Styles.Render("~/Content/themes/base/autocomplete.css")
+    @Styles.Render("~/Theme/redmond/jquery-ui-1.10.3.custom.min.css")
     @Styles.Render("~/Content/small-business.css")   
     @Styles.Render("~/Content/bootstrap/bootstrap.min.css")
+    @Styles.Render("~/Content/general.css")
 
     <!-- jQuery -->
     @Scripts.Render("~/bundles/jquery")
     @*@Scripts.Render("~/Scripts/jquery-ui.min.js")*@
     @Scripts.Render("~/bundles/jqueryui")
+    
     <!-- Bootstrap Core JavaScript -->
     @Scripts.Render("~/Scripts/bootstrap/bootstrap.min.js")    
     @Scripts.Render("~/Scripts/scrollButtons.js")
@@ -63,7 +65,7 @@
                         @Html.ActionLink(HttpUtility.HtmlDecode("&raquo; ") + "Trailer", "Trailer", "Gotham")
                     </li>
                 </ul>
-                @Html.Partial("~/Views/Gotham/Buscador.cshtml", new ProjectoLibre.Models.Buscador())
+                @{Html.RenderPartial("~/Views/Gotham/Buscador.cshtml", new ProjectoLibre.Models.Buscador());}
 
 
             </div>

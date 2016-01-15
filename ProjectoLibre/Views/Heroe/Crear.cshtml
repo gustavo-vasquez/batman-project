@@ -1,9 +1,8 @@
 ﻿@model ProjectoLibre.Models.Heroe
 
-@Styles.Render("~/Content/jqueryui/jquery-ui.css")
-@Scripts.Render("~/Scripts/jquery-1.11.3.min.js")
-@Scripts.Render("~/bundles/jqueryui")
+@Styles.Render("~/Content/themes/base/datepicker.css")
 @Scripts.Render("~/Scripts/ajaxFormFix.js")
+@Scripts.Render("~/Scripts/jquery.ui.datepicker-es.js")
 @Scripts.Render("~/Scripts/datepicker.js")
 @*@Scripts.Render("~/Scripts/fileStyle/bootstrap-filestyle.min.js")*@
 
@@ -74,7 +73,6 @@
                 @Html.TextBoxFor(h => h.fechaNacimiento,
                 new
                 {
-                    id = "fechaNac",
                     @class = "form-control",
                     placeholder = "Elegir fecha..."
                 })

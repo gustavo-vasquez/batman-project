@@ -4,12 +4,13 @@
     ViewBag.Title = "Editar";
 }
 
+@Styles.Render("~/Content/themes/base/datepicker.css")
 @Styles.Render("~/Content/validation-style.css")
 @Styles.Render("~/Content/modal-alert.css")
 
 @Scripts.Render("~/bundles/jqueryval")
 @Scripts.Render("~/Scripts/jquery.ui.datepicker-es.js")
-@*@Scripts.Render("~/Scripts/datepicker.js")*@
+@Scripts.Render("~/Scripts/datepicker.js")
 @Scripts.Render("~/Scripts/checksubmit.js")
 
 <style>
@@ -17,16 +18,6 @@
         font-size: 16px;
     }
 </style>
-
-<script>
-    $(function () {
-        $("#fechaNacimiento").datepicker({
-            //showButtonPanel: true,
-            showAnim: "fold"
-            //minDate: 0
-        });
-    });
-</script>
 
 <h2 class="text-uppercase">Editar personaje</h2>
 <div class="col-xs-12 vert"></div>
@@ -62,7 +53,7 @@
             <label class="control-label col-sm-2" for="fechaNacimiento">Año de nacimiento:</label>            
 
             <div class="col-sm-7">
-                @Html.TextBoxFor(h => h.fechaNacimiento,
+                @Html.TextBoxFor(h => h.fechaNacimiento, "{0:dd/MM/yyyy}",
                 new
                 {
                     @class = "form-control",

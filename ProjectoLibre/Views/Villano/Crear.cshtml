@@ -1,7 +1,10 @@
 ﻿@model ProjectoLibre.Models.Villano
 
+@Styles.Render("~/Content/themes/base/datepicker.css")
 @Scripts.Render("~/Scripts/ajaxFormFix.js")
-@Scripts.Render("~/Scripts/fileStyle/bootstrap-filestyle.min.js")
+@Scripts.Render("~/Scripts/jquery.ui.datepicker-es.js")
+@Scripts.Render("~/Scripts/datepicker.js")
+@*@Scripts.Render("~/Scripts/fileStyle/bootstrap-filestyle.min.js")*@
 
 <style>
     .btn-file {
@@ -61,6 +64,21 @@
                 })
 
                 @Html.ValidationMessageFor(v => v.amenaza, null, new { @class = "validations" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="fechaNacimiento">Año de nacimiento:</label>
+
+            <div class="col-sm-7">
+                @Html.TextBoxFor(h => h.fechaNacimiento, "{0:dd/MM/yyyy}",
+                new
+                {
+                    @class = "form-control",
+                    placeholder = "Elegir fecha..."
+                })
+
+                @Html.ValidationMessageFor(h => h.fechaNacimiento, null, new { @class = "validations" })
             </div>
         </div>
 

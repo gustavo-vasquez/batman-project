@@ -50,6 +50,9 @@
 
                                                 <h3>Habilidad: </h3>
                                                 <p><span class="glyphicon glyphicon-flash"></span> @modelo.habilidad</p>
+
+                                                <h3>Año de nacimiento: </h3>
+                                                <p><span class="glyphicon glyphicon-book"></span> @{DateTime fecha = (DateTime)modelo.fechaNacimiento; Write(fecha.ToShortDateString());}</p>
                                             </div>            
                                         }
                                         else
@@ -79,6 +82,9 @@
 
                                                 <h3>Amenaza: </h3>
                                                 <p><span class="glyphicon glyphicon-flash"></span> @modelo.amenaza</p>
+
+                                                <h3>Año de nacimiento: </h3>
+                                                <p><span class="glyphicon glyphicon-book"></span> @{Write(modelo.fechaNacimiento.Value.ToShortDateString());}</p>
                                             </div>            
                                         }
                                         

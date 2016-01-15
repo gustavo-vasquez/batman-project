@@ -152,6 +152,8 @@ namespace ProjectoLibre.Controllers
                         villanoModificado.imagenData = registro.imagenData;
                     }
 
+                    villanoModificado.fechaNacimiento = registro.fechaNacimiento;
+
                     context.SaveChanges();
                     context.Dispose();
 
