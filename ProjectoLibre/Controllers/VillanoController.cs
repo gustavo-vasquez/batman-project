@@ -58,20 +58,15 @@ namespace ProjectoLibre.Controllers
                             data = binaryReader.ReadBytes(archivo.ContentLength);
                         }
 
-                        // Save to server
-
-                        //registro.file.SaveAs(Path.Combine(Server.MapPath("~/Images/avatars"), Path.GetFileName(registro.file.FileName)));
-
-                        //string destPath = Path.Combine(Server.MapPath("~/Images/avatars"), Path.GetFileName(registro.file.FileName));
-                        //var fileStream = new FileStream(destPath, FileMode.Create, FileAccess.Write);
-                        //fileStream.CopyTo(fileStream);
-
-
-                        //registro.file.SaveAs(path);
-
-                        // Save to database
+                        // Guardar imagen en la base de datos
                         registro.imagenName = fileName;
                         registro.imagenData = data;
+
+                        // Guardar imagen en el servidor
+                        using (FileStream image = System.IO.File.Create(Server.MapPath("~/Images/avatar/villano/") + fileName, data.Length))
+                        {
+                            image.Write(data, 0, data.Length);
+                        }
 
                     }
 

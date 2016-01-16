@@ -8,6 +8,8 @@ using System.Data.SqlClient;
 
 using ProjectoLibre.Models;
 using System.IO;
+using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace ProjectoLibre.Controllers
 {
@@ -42,7 +44,6 @@ namespace ProjectoLibre.Controllers
                 {
                     HttpPostedFileBase archivo = registro.file;
 
-
                     // Verify that the user selected a file
                     if (archivo != null && archivo.ContentLength > 0)
                     {
@@ -58,9 +59,14 @@ namespace ProjectoLibre.Controllers
                             data = binaryReader.ReadBytes(archivo.ContentLength);
                         }
 
-                        // Save to database
+                        // Guardar imagen en la base de datos
                         registro.imagenName = fileName;
-                        registro.imagenData = data;
+                        registro.imagenData = data;                                            
+
+                        // Guardar imagen en el servidor
+                        using (FileStream image = System.IO.File.Create(Server.MapPath("~/Images/avatar/heroe/") + fileName, data.Length)) {
+                            image.Write(data, 0, data.Length);
+                        }
 
                     }
 

@@ -339,6 +339,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\avatar\heroe\" />
+    <Folder Include="Images\avatar\villano\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">

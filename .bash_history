@@ -39,3 +39,23 @@ git commit -m "Corregida la vista parcial de la busqueda y agregado datepicker"
 git status
 git push batman nightly
 exit
+git status
+git add .
+git status
+git checkout master
+git commit -m "Arreglado el tedioso bug en la barra de busqueda y las fechas"
+git checkout master
+git status
+git push batman master
+git push batman master
+git status
+git checkout nightly
+git status
+git push batman nightly
+git push batman nightly
+git push batman master
+exit
+git push nigtly master
+git fetch batman master
+git push batman nightly:master
+exit
