@@ -206,6 +206,7 @@
     <Content Include="Content\themes\base\tabs.css" />
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Images\loading7_orange.gif" />
     <Content Include="Images\malihu-scrollbar-plugin\mCSB_buttons.png" />
     <Content Include="Images\social\crunchify-follow-sprite.png" />
     <Content Include="Images\social\social-media-sprite.png" />

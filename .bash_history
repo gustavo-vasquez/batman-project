@@ -65,3 +65,9 @@ git status
 git commit -m "Implementada la subida de imagenes al servidor"
 git push batman nightly
 exit
+git status
+git add .
+git status
+git commit -m "Creada la vista por pestañas (falta mostrar imagenes del server)"
+git push batman nightly
+exit

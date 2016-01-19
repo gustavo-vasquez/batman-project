@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 
@@ -16,6 +17,7 @@ namespace ProjectoLibre.Controllers
 
         public ActionResult Heroe()
         {
+            Thread.Sleep(2000);
             BibliotecaDBEntities context = new BibliotecaDBEntities();
             List<Heroe> heroes = context.Heroes.ToList();
 
@@ -24,6 +26,7 @@ namespace ProjectoLibre.Controllers
 
         public ActionResult Villano()
         {
+            Thread.Sleep(2000);
             BibliotecaDBEntities context = new BibliotecaDBEntities();
             List<Villano> villanos = context.Villanoes.ToList();
 
@@ -31,17 +34,23 @@ namespace ProjectoLibre.Controllers
         }
 
         public ActionResult Galeria()
-        {                    
+        {
+            Thread.Sleep(2000);
+
             return PartialView("_GaleriaDB", listaditos);
         }
 
         public ActionResult Contacto()
         {
+            Thread.Sleep(2000);
+
             return PartialView("_Contacto");
         }
 
         public ActionResult Trailer()
         {
+            Thread.Sleep(2000);
+
             return PartialView("_Trailer");
         }
 

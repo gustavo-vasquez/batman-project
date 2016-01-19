@@ -64,7 +64,7 @@ namespace ProjectoLibre.Controllers
                         registro.imagenData = data;                                            
 
                         // Guardar imagen en el servidor
-                        using (FileStream image = System.IO.File.Create(Server.MapPath("~/Images/avatar/heroe/") + fileName, data.Length)) {
+                        using (FileStream image = System.IO.File.Create(Server.MapPath("~/Images/avatar/heroe/") + registro.nombre + Path.GetExtension(fileName), data.Length)) {
                             image.Write(data, 0, data.Length);
                         }
 
@@ -135,8 +135,13 @@ namespace ProjectoLibre.Controllers
                         registro.imagenData = data;
                         fileChanged = true;
 
+                        string extension = Path.GetExtension(fileName);
+
+                        //Borrar foto anterior
+                        //System.IO.File.Delete(Server.MapPath("~/Images/avatar/heroe/" + registro.nombre));
+
                         // Guardar imagen en el servidor
-                        using (FileStream image = System.IO.File.Create(Server.MapPath("~/Images/avatar/heroe/") + fileName, data.Length))
+                        using (FileStream image = System.IO.File.Create(Server.MapPath("~/Images/avatar/heroe/") + registro.nombre + extension, data.Length))
                         {
                             image.Write(data, 0, data.Length);
                         }
@@ -149,7 +154,7 @@ namespace ProjectoLibre.Controllers
                     heroeModificado.habilidad = registro.habilidad;
 
                     if (fileChanged)
-                    {
+                    {                                               
                         heroeModificado.imagenName = registro.imagenName;
                         heroeModificado.imagenData = registro.imagenData;
                     }

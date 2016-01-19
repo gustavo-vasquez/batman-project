@@ -63,7 +63,7 @@ namespace ProjectoLibre.Controllers
                         registro.imagenData = data;
 
                         // Guardar imagen en el servidor
-                        using (FileStream image = System.IO.File.Create(Server.MapPath("~/Images/avatar/villano/") + fileName, data.Length))
+                        using (FileStream image = System.IO.File.Create(Server.MapPath("~/Images/avatar/villano/") + registro.nombre + Path.GetExtension(fileName), data.Length))
                         {
                             image.Write(data, 0, data.Length);
                         }
@@ -134,8 +134,10 @@ namespace ProjectoLibre.Controllers
                         registro.imagenData = data;
                         fileChanged = true;
 
+                        string extension = Path.GetExtension(fileName);
+
                         // Guardar imagen en el servidor
-                        using (FileStream image = System.IO.File.Create(Server.MapPath("~/Images/avatar/villano/") + fileName, data.Length))
+                        using (FileStream image = System.IO.File.Create(Server.MapPath("~/Images/avatar/villano/") + registro.nombre + extension, data.Length))
                         {
                             image.Write(data, 0, data.Length);
                         }

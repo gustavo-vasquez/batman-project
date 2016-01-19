@@ -2,14 +2,58 @@
     ViewBag.Title = "Contacto";
 }
 
-<script src="http://maps.googleapis.com/maps/api/js"></script>
-@Scripts.Render("~/Scripts/mapsGoogle.js")
+<script type="text/javascript">
+    var gMapsLoaded = false;
+    window.gMapsCallback = function () {
+        gMapsLoaded = true;
+        $(window).trigger('gMapsLoaded');
+    }
+    window.loadGoogleMaps = function () {
+        if (gMapsLoaded) return window.gMapsCallback();
+        var script_tag = document.createElement('script');
+        script_tag.setAttribute("type", "text/javascript");
+        script_tag.setAttribute("src", "http://maps.google.com/maps/api/js?sensor=false&callback=gMapsCallback");
+        (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(script_tag);
+    }
+
+    $(document).ready(function () {
+        function initialize() {
+            var mapOptions = {
+                zoom: 5,
+                center: new google.maps.LatLng(40.8130395, -73.9616627),
+                mapTypeId: google.maps.MapTypeId.ROADMAP                
+            };
+
+            map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(40.8130395, -73.9616627),
+                animation: google.maps.Animation.BOUNCE
+            });
+
+            marker.setMap(map);
+
+            var infowindow = new google.maps.InfoWindow({
+                content: "Gotham City"
+            });
+
+            infowindow.open(map, marker);
+
+            google.maps.event.addListener(marker, 'click', function () {
+                infowindow.open(map, marker);
+            });
+
+        }
+        $(window).bind('gMapsLoaded', initialize);
+        window.loadGoogleMaps();
+    });
+</script>
 
 <h2>Mapa de Gotham City</h2>
 
 <p>Puede encontrar la ciudad más quilombera del mundo aquí:</p>
 
-<div id="googleMap" style="width: 700px; height: 650px; border: 1px solid #cfcece; float: left; color: black;"></div>
+<div id="map_canvas" style="width: 700px; height: 650px; border: 1px solid #cfcece; float: left; color: black;"></div>
 <div style="margin-left: 700px;">
 <pre style="background-color: rgba(0, 0, 0, 0.00); border: rgba(0, 0, 0, 0.00); color: white;">
              .  .
