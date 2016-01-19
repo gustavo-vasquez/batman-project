@@ -4,99 +4,65 @@
     ViewBag.Title = "Tabs";
 }
 
+@Styles.Render("~/Content/3-col-portfolio.css")
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#heroes").load("/Tab/Heroe");
+
+        $("#villanoLink").click(function () {
+            $("#villanos").load("/Tab/Villano");
+        });
+
+        $("#galeriaDBLink").click(function () {
+            $("#galeriaDB").load("/Tab/Galeria");
+        });
+
+        $("#contactoLink").click(function () {
+            $("#contacto").load("/Tab/Contacto");
+        });
+
+        $("#trailerLink").click(function () {
+            $("#trailer").load("/Tab/Trailer");
+        });
+    });
+</script>
+
 <style>
     .nav-tabs > li.active > a,
     .nav-tabs > li.active > a:hover,
     .nav-tabs > li.active > a:focus {        
         background-color: #4e5d6c !important;           
     }
+
 </style>
 
 <ul class="nav-justified nav-tabs-justified nav nav-tabs">
-    <li class="active"><a href="#heroes" data-toggle="tab" aria-expanded="true">Héroes</a></li>
-    <li class=""><a href="#villanos" data-toggle="tab" aria-expanded="false">Villanos</a></li>
-    <li class="disabled"><a>Galería de fotos (Proximamente)</a></li>
-    <li class="disabled"><a>Contacto (Proximamente)</a></li>
-    <li class="disabled"><a>Trailer (Proximamente)</a></li>
+    <li class="active"><a id="heroeLink" href="#heroes" data-toggle="tab" aria-expanded="true">Héroes</a></li>
+    <li class=""><a id="villanoLink" href="#villanos" data-toggle="tab" aria-expanded="false">Villanos</a></li>
+    <li class=""><a id="galeriaDBLink" href="#galeriaDB" data-toggle="tab" aria-expanded="false">Galería (Base de datos)</a></li>
+    <li class="disabled"><a>Galería (Servidor)</a></li>
+    <li class=""><a id="contactoLink" href="#contacto" data-toggle="tab" aria-expanded="false">Contacto</a></li>
+    <li class=""><a id="trailerLink" href="#trailer" data-toggle="tab" aria-expanded="false">Trailer</a></li>
 </ul>
+
 <div id="myTabContent" class="tab-content well">
     <div class="tab-pane fade active in" id="heroes">
-        @if (Model.ExistenHeroes())
-        {
-            <table class="table table-bordered table-hover table-responsive">
-                <thead class="bg-success">
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Habilidad</th>
-                        <th>Opciones</th>
-                    </tr>
-                </thead>
-
-                @foreach (var h in Model.MostrarHeroes())
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => h.nombre)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => h.habilidad)
-                        </td>
-                        <td>
-                            @Html.ActionLink("Editar", "Editar", "Heroe", new { id = h.id }, null) |
-                            @Html.ActionLink("Eliminar", "Eliminar", "Heroe", new { id = h.id }, null)
-                        </td>
-                    </tr>
-                }
-
-            </table>
-        }
-        else
-        {
-            <p>Todavia no hay heroes en la lista, @Html.ActionLink("crea uno ahora", "Crear")</p>
-        }
     </div>
+
     <div class="tab-pane fade" id="villanos">
-        @if (Model.ExistenVillanos())
-        {
-            <table class="table table-bordered table-hover table-responsive">
-                <thead class="bg-danger">
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Amenaza</th>
-                        <th>Opciones</th>
-                    </tr>
-                </thead>
-
-                @foreach (var v in Model.MostrarVillanos())
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => v.nombre)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => v.amenaza)
-                        </td>
-                        <td>
-                            @Html.ActionLink("Editar", "Editar", "Villano", new { id = v.id }, null) |
-                            @Html.ActionLink("Eliminar", "Eliminar", "Villano", new { id = v.id }, null)
-                        </td>
-                    </tr>
-                }
-
-            </table>
-        }
-        else
-        {
-            <p>Todavia no hay villanos en la lista, @Html.ActionLink("crea uno ahora", "Crear")</p>
-        }
     </div>
-    <div class="tab-pane fade" id="galeria">
+
+    <div class="tab-pane fade" id="galeriaDB">        
+    </div>
+
+    <div class="tab-pane fade" id="galeriaSV">
         <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.</p>
     </div>
+
     <div class="tab-pane fade" id="contacto">
-        <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater.</p>
     </div>
-    <div class="tab-pane fade" id="trailer">
-        <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater.</p>
+
+    <div class="tab-pane fade" id="trailer">               
     </div>
 </div>

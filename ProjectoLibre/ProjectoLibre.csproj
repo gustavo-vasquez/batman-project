@@ -135,6 +135,7 @@
     <Compile Include="Controllers\GothamController.cs" />
     <Compile Include="Controllers\HeroeController.cs" />
     <Compile Include="Controllers\PracticaController.cs" />
+    <Compile Include="Controllers\TabController.cs" />
     <Compile Include="Controllers\VillanoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -169,6 +170,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\3-col-portfolio.css" />
     <Content Include="Content\malihu-scrollbar-plugin\jquery.mCustomScrollbar.css" />
     <Content Include="Content\malihu-scrollbar-plugin\jquery.mCustomScrollbar.min.css" />
     <Content Include="Content\themes\base\accordion.css" />
@@ -336,6 +338,11 @@
     <Content Include="Views\Shared\_Resultado.cshtml" />
     <Content Include="Views\Villano\Editar.cshtml" />
     <Content Include="Views\Villano\Eliminar.cshtml" />
+    <Content Include="Views\Tab\_Trailer.cshtml" />
+    <Content Include="Views\Tab\_Contacto.cshtml" />
+    <Content Include="Views\Tab\_GaleriaDB.cshtml" />
+    <Content Include="Views\Tab\_Villano.cshtml" />
+    <Content Include="Views\Tab\_Heroe.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

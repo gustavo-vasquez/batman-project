@@ -135,6 +135,12 @@ namespace ProjectoLibre.Controllers
                         registro.imagenData = data;
                         fileChanged = true;
 
+                        // Guardar imagen en el servidor
+                        using (FileStream image = System.IO.File.Create(Server.MapPath("~/Images/avatar/heroe/") + fileName, data.Length))
+                        {
+                            image.Write(data, 0, data.Length);
+                        }
+
                     }
                     
                     BibliotecaDBEntities context = new BibliotecaDBEntities();

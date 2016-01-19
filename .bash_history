@@ -59,3 +59,9 @@ git push nigtly master
 git fetch batman master
 git push batman nightly:master
 exit
+git status
+git add .
+git status
+git commit -m "Implementada la subida de imagenes al servidor"
+git push batman nightly
+exit
