@@ -1,4 +1,5 @@
-﻿using ProjectoLibre.Models;
+﻿using Capa_Entidades;
+using ProjectoLibre.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

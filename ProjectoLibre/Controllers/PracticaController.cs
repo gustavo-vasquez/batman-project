@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Capa_Entidades;
+using Newtonsoft.Json;
 using ProjectoLibre.Models;
 using System;
 using System.Collections.Generic;

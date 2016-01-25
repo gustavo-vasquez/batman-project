@@ -34,3 +34,5 @@ c:\users\vasqu\documents\visual studio 2013\Projects\ProjectoLibre\ProjectoLibre
 c:\users\vasqu\documents\visual studio 2013\Projects\ProjectoLibre\ProjectoLibre\obj\Debug\ProjectoLibre.csprojResolveAssemblyReference.cache
 c:\users\vasqu\documents\visual studio 2013\Projects\ProjectoLibre\ProjectoLibre\obj\Debug\ProjectoLibre.dll
 c:\users\vasqu\documents\visual studio 2013\Projects\ProjectoLibre\ProjectoLibre\obj\Debug\ProjectoLibre.pdb
+C:\Users\vasqu\documents\visual studio 2013\Projects\ProjectoLibre\ProjectoLibre\bin\Capa_Entidades.dll
+C:\Users\vasqu\documents\visual studio 2013\Projects\ProjectoLibre\ProjectoLibre\bin\Capa_Entidades.pdb

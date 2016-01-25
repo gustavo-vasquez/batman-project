@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Data.Entity;
 
 using ProjectoLibre.Models;
+using Capa_Entidades;
 
 namespace ProjectoLibre.Controllers
 {

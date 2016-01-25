@@ -142,20 +142,11 @@
     </Compile>
     <Compile Include="Models\Buscador.cs" />
     <Compile Include="Models\Busqueda.cs" />
-    <Compile Include="Models\Heroe.cs">
-      <DependentUpon>PersonajesGotham.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\HeroeEntity.cs" />
     <Compile Include="Models\Listados.cs" />
     <Compile Include="Models\PersonajesGotham.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PersonajesGotham.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PersonajesGotham.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PersonajesGotham.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PersonajesGotham.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -163,10 +154,6 @@
       <DependentUpon>PersonajesGotham.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\ResultadoTipoDato.cs" />
-    <Compile Include="Models\Villano.cs">
-      <DependentUpon>PersonajesGotham.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\VillanoEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -247,14 +234,10 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>PersonajesGotham.edmx</DependentUpon>
       <LastGenOutput>PersonajesGotham.Context.cs</LastGenOutput>
+      <CustomToolNamespace>Capa_Entidades</CustomToolNamespace>
     </Content>
     <Content Include="Models\PersonajesGotham.edmx.diagram">
       <DependentUpon>PersonajesGotham.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\PersonajesGotham.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PersonajesGotham.edmx</DependentUpon>
-      <LastGenOutput>PersonajesGotham.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\checksubmit.js" />
     <Content Include="Scripts\deleteModal.js" />
@@ -358,6 +341,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Capa_Entidades\Capa_Entidades.csproj">
+      <Project>{3ceecef8-0ee0-4370-8888-cd7d6e6c83f9}</Project>
+      <Name>Capa_Entidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

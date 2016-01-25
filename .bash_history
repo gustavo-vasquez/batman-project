@@ -77,3 +77,9 @@ git status
 git commit -m "Optimizado el guardado de imagenes, agregada animacion al cargar cada tab y corregido el google maps en su tab"
 git push batman nightly
 exit
+git status
+git add .
+git status
+git commit -m "Creada solamente las capas sin contenido"
+git push batman nightly
+exit

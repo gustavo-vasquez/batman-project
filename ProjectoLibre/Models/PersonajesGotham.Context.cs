@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProjectoLibre.Models
+namespace Capa_Entidades
 {
     using System;
     using System.Data.Entity;

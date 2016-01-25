@@ -10,6 +10,7 @@ using ProjectoLibre.Models;
 using System.IO;
 using System.Drawing;
 using System.Drawing.Imaging;
+using Capa_Entidades;
 
 namespace ProjectoLibre.Controllers
 {

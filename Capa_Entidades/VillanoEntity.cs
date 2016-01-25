@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace ProjectoLibre.Models
+namespace Capa_Entidades
 {
     [MetadataType(typeof(VillanoMetadata))]
     public partial class Villano
