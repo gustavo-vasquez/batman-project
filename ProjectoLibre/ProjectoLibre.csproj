@@ -344,6 +344,7 @@
     <Content Include="Views\Tab\_GaleriaDB.cshtml" />
     <Content Include="Views\Tab\_Villano.cshtml" />
     <Content Include="Views\Tab\_Heroe.cshtml" />
+    <Content Include="Views\Tab\_GaleriaSV.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

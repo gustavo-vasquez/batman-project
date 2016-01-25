@@ -23,6 +23,11 @@
             $("#galeriaDB").load("/Tab/Galeria");
         });
 
+        $("#galeriaSVLink").click(function () {
+            $("#galeriaSV").html(animation);
+            $("#galeriaSV").load("/Tab/GaleriaSV");
+        });
+
         $("#contactoLink").click(function () {
             $("#contacto").html(animation);
             $("#contacto").load("/Tab/Contacto");
@@ -48,7 +53,7 @@
     <li class="active"><a id="heroeLink" href="#heroes" data-toggle="tab" aria-expanded="true">Héroes</a></li>
     <li class=""><a id="villanoLink" href="#villanos" data-toggle="tab" aria-expanded="false">Villanos</a></li>
     <li class=""><a id="galeriaDBLink" href="#galeriaDB" data-toggle="tab" aria-expanded="false">Galería (Base de datos)</a></li>
-    <li class="disabled"><a>Galería (Servidor)</a></li>
+    <li class=""><a id="galeriaSVLink" href="#galeriaSV" data-toggle="tab" aria-expanded="false">Galería (Servidor)</a></li>
     <li class=""><a id="contactoLink" href="#contacto" data-toggle="tab" aria-expanded="false">Contacto</a></li>
     <li class=""><a id="trailerLink" href="#trailer" data-toggle="tab" aria-expanded="false">Trailer</a></li>
 </ul>
@@ -63,8 +68,7 @@
     <div class="tab-pane fade" id="galeriaDB">        
     </div>
 
-    <div class="tab-pane fade" id="galeriaSV">
-        <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.</p>
+    <div class="tab-pane fade" id="galeriaSV">        
     </div>
 
     <div class="tab-pane fade" id="contacto">

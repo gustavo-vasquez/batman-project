@@ -71,3 +71,9 @@ git status
 git commit -m "Creada la vista por pestañas (falta mostrar imagenes del server)"
 git push batman nightly
 exit
+git status
+git add .
+git status
+git commit -m "Optimizado el guardado de imagenes, agregada animacion al cargar cada tab y corregido el google maps en su tab"
+git push batman nightly
+exit

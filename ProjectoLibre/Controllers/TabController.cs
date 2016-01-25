@@ -40,6 +40,13 @@ namespace ProjectoLibre.Controllers
             return PartialView("_GaleriaDB", listaditos);
         }
 
+        public ActionResult GaleriaSV()
+        {
+            Thread.Sleep(2000);
+
+            return PartialView("_GaleriaSV", listaditos);
+        }
+
         public ActionResult Contacto()
         {
             Thread.Sleep(2000);

@@ -1,0 +1,90 @@
+﻿@model ProjectoLibre.Models.Listados
+
+<div class="container-fluid">
+    <!-- Page Header -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>Galería de héroes</h2>
+            <hr />
+        </div>
+    </div>
+    <!-- /.Fin Header -->
+    <!-- Projects Row -->
+    <div class="row">
+        @if (Model.ExistenHeroes())
+        {
+            foreach (var h in Model.MostrarHeroes())
+            {
+                if (h.imagenData != null)
+                {                    
+                    string imagen = "../Images/avatar/heroe/" + h.nombre + Path.GetExtension(h.imagenName);
+
+                    <div class="col-md-4 portfolio-item">
+                        <a href="@imagen">
+                            <img src="@imagen" class="img-responsive" style="width: 400px; height: 300px;" alt="@h.imagenName" />
+                        </a>
+                        <h4 class="text-center"><b>@h.nombre</b></h4>
+                    </div>
+                }
+                else
+                {
+                    <div class="col-md-4 portfolio-item">
+                        <a href="#">
+                            <img src="~/Images/not_found.gif" class="img-responsive" style="width: 400px; height: 300px;" alt="default" />
+                        </a>
+                        <h4 class="text-center"><b>@h.nombre</b></h4>
+                    </div>
+                }
+            }
+        }
+        else
+        {
+            <p class="text-center">Todavia no hay imágenes de heroes para mostrar.</p>
+        }
+    </div>
+
+    <div class="vert"></div>
+
+    <!-- Page Header -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>Galería de villanos</h2>
+            <hr />
+        </div>
+    </div>
+    <!-- /.Fin Header -->
+    <!-- Projects Row -->
+    <div class="row">
+        @if (Model.ExistenVillanos())
+        {
+            foreach (var v in Model.MostrarVillanos())
+            {
+                if (v.imagenData != null)
+                {                    
+                    string imagen = "../Images/avatar/villano/" + v.nombre + Path.GetExtension(v.imagenName);
+
+                    <div class="col-md-4 portfolio-item">
+                        <a href="@imagen">
+                            <img src="@imagen" class="img-responsive" style="width: 400px; height: 300px;" alt="@v.imagenName" />
+                        </a>
+                        <h4 class="text-center"><b>@v.nombre</b></h4>
+                    </div>
+                }
+                else
+                {
+                    <div class="col-md-4 portfolio-item">
+                        <a href="#">
+                            <img src="~/Images/not_found.gif" class="img-responsive" style="width: 400px; height: 300px;" alt="default" />
+                        </a>
+                        <h4 class="text-center"><b>@v.nombre</b></h4>
+                    </div>
+                }
+            }
+        }
+        else
+        {
+            <p class="text-center">Todavia no hay imágenes de villanos para mostrar.</p>
+        }
+    </div>
+
+</div>
