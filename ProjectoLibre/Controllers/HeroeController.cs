@@ -178,7 +178,6 @@ namespace ProjectoLibre.Controllers
                 // TODO: Add delete logic here
                 //int numero = (dynamic)5 / 0; // Forzar excepcion para probar manejo de excepciones
                 var heroeBorrado = heroeServ.EliminarPersonaje(id);
-
                 System.IO.File.Delete(Server.MapPath("~/Images/avatar/heroe/") + heroeBorrado.nombre + Path.GetExtension(heroeBorrado.imagenName));
 
                 return RedirectToAction("Portada", "Gotham");                

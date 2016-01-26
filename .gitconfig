@@ -1,2 +1,2 @@
 [core]
-	askpass = GIT_ASKPASS
+	askpass = 

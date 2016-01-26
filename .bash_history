@@ -95,3 +95,31 @@ git status
 git status
 git push batman nightly:master
 exit
+git status
+git init
+git status
+git add .
+git status
+git commit -m "Iniciado el desarrollo de la capa de servicios (x ahora solo la de buscar personaje)"
+git push batman master
+git push
+git remote add origin https://github.com/gustavo-vasquez/batman-project.git
+git push origin master
+git diff origin master
+git push
+git push origin nightly
+git checkout nightly
+git checkout -b nightly
+
+git push origin :nightly
+git push origin nightly
+git config --global core.askpass GIT_ASKPASS
+git status
+git add .
+git status
+git commit -m "La capa de servicios de Heroe esta completa"
+git push origin nightly
+git config --global core.askpass
+git config --global core.askpass ''
+git config --global core.askpass
+exit

@@ -1,4 +1,5 @@
 ﻿using Capa_Entidades;
+using Capa_Servicios;
 using ProjectoLibre.Models;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace ProjectoLibre.Controllers
 {
     public class TabController : Controller
     {
+        static TabServicios tabsServ = new TabServicios();
         //
         // GET: /Tab/
 
@@ -18,20 +20,16 @@ namespace ProjectoLibre.Controllers
 
         public ActionResult Heroe()
         {
-            Thread.Sleep(2000);
-            BibliotecaDBEntities context = new BibliotecaDBEntities();
-            List<Heroe> heroes = context.Heroes.ToList();
+            Thread.Sleep(2000);            
 
-            return PartialView("_Heroe", heroes);
+            return PartialView("_Heroe", tabsServ.ObtenerListaHeroes());
         }
 
         public ActionResult Villano()
         {
-            Thread.Sleep(2000);
-            BibliotecaDBEntities context = new BibliotecaDBEntities();
-            List<Villano> villanos = context.Villanoes.ToList();
+            Thread.Sleep(2000);            
 
-            return PartialView("_Villano", villanos);
+            return PartialView("_Villano", tabsServ.ObtenerListaVillanos());
         }
 
         public ActionResult Galeria()

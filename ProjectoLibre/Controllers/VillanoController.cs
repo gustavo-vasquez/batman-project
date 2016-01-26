@@ -9,11 +9,13 @@ using System.Data.SqlClient;
 using ProjectoLibre.Models;
 using System.IO;
 using Capa_Entidades;
+using Capa_Servicios;
 
 namespace ProjectoLibre.Controllers
 {
     public class VillanoController : Controller
     {
+        static VillanoServicios villanoServ = new VillanoServicios();
         //
         // GET: /Villano/
 
@@ -71,20 +73,16 @@ namespace ProjectoLibre.Controllers
 
                     }
 
-                    BibliotecaDBEntities context = new BibliotecaDBEntities();
-                    context.Villanoes.Add(registro);
-
-                    context.SaveChanges();
-                    context.Dispose();
+                    villanoServ.CrearNuevoPersonaje(registro);
 
                     return PartialView("_Resultado");
                 }
 
                 return PartialView(registro);
             }
-            catch
+            catch (Exception ex)
             {
-                return PartialView(registro);
+                return Content("<script type='text/javascript'>alert('" + ex.Message + "');</script>");
             }
 
         }
@@ -93,12 +91,8 @@ namespace ProjectoLibre.Controllers
         // GET: /Villano/Edit/5
 
         public ActionResult Editar(int id)
-        {
-            BibliotecaDBEntities context = new BibliotecaDBEntities();
-            var busqueda = context.Villanoes.FirstOrDefault(h => h.id == id);
-            context.Dispose();
-
-            return View(busqueda);
+        {           
+            return View(villanoServ.BuscarPersonaje(id));
         }
 
         //
@@ -145,22 +139,7 @@ namespace ProjectoLibre.Controllers
 
                     }
 
-                    BibliotecaDBEntities context = new BibliotecaDBEntities();
-                    var villanoModificado = context.Villanoes.FirstOrDefault(h => h.id == id);
-                    villanoModificado.nombre = registro.nombre;
-                    villanoModificado.amenaza = registro.amenaza;
-
-                    if (fileChanged)
-                    {
-                        villanoModificado.imagenName = registro.imagenName;
-                        villanoModificado.imagenData = registro.imagenData;
-                    }
-
-                    villanoModificado.fechaNacimiento = registro.fechaNacimiento;
-
-                    context.SaveChanges();
-                    context.Dispose();
-
+                    Villano villanoModificado = villanoServ.EditarPersonaje(id, registro, fileChanged);
                     ViewBag.submitSuccess = true;
 
                     return View(villanoModificado);
@@ -169,9 +148,9 @@ namespace ProjectoLibre.Controllers
                 return View(registro);
 
             }
-            catch
+            catch (Exception ex)
             {
-                return View(registro);
+                return Content("<script type='text/javascript'>alert('" + ex.Message + "');</script>");
             }
         }
 
@@ -180,11 +159,7 @@ namespace ProjectoLibre.Controllers
 
         public ActionResult Eliminar(int id)
         {
-            BibliotecaDBEntities context = new BibliotecaDBEntities();
-            var busqueda = context.Villanoes.FirstOrDefault(h => h.id == id);
-            context.Dispose();
-
-            return View(busqueda);
+            return View(villanoServ.BuscarPersonaje(id));
         }
 
         //
@@ -196,19 +171,14 @@ namespace ProjectoLibre.Controllers
             try
             {
                 // TODO: Add delete logic here
-                BibliotecaDBEntities context = new BibliotecaDBEntities();
-                var villanoBorrado = context.Villanoes.Find(id);
-                context.Villanoes.Remove(villanoBorrado);
-                context.SaveChanges();
-                context.Dispose();
-
+                Villano villanoBorrado = villanoServ.EliminarPersonaje(id);
                 System.IO.File.Delete(Server.MapPath("~/Images/avatar/villano/") + villanoBorrado.nombre + Path.GetExtension(villanoBorrado.imagenName));
 
                 return RedirectToAction("Portada", "Gotham");
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                return Content("<script type='text/javascript'>alert('" + ex.Message + "');</script>");
             }
         }
     }
