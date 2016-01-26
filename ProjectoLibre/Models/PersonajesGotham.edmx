@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BibliotecaDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityType Name="Heroe">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="habilidad" Type="varchar" MaxLength="50" />
+          <Property Name="imagenName" Type="varchar" MaxLength="200" />
+          <Property Name="imagenData" Type="varbinary(max)" />
+          <Property Name="fechaNacimiento" Type="date" />
+        </EntityType>
+        <EntityType Name="Villano">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="amenaza" Type="varchar" MaxLength="50" />
+          <Property Name="imagenName" Type="varchar" MaxLength="200" />
+          <Property Name="imagenData" Type="varbinary(max)" />
+          <Property Name="fechaNacimiento" Type="date" />
+        </EntityType>
+        <EntityContainer Name="BibliotecaDBModelStoreContainer">
+          <EntitySet Name="Heroe" EntityType="Self.Heroe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Villano" EntityType="Self.Villano" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BibliotecaDBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityType Name="Heroe">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="habilidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="imagenName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="imagenData" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="fechaNacimiento" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Villano">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="amenaza" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="imagenName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="imagenData" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="fechaNacimiento" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityContainer Name="BibliotecaDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Heroes" EntityType="Self.Heroe" />
+          <EntitySet Name="Villanoes" EntityType="Self.Villano" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BibliotecaDBModelStoreContainer" CdmEntityContainer="BibliotecaDBEntities">
+          <EntitySetMapping Name="Heroes">
+            <EntityTypeMapping TypeName="BibliotecaDBModel.Heroe">
+              <MappingFragment StoreEntitySet="Heroe">
+                <ScalarProperty Name="fechaNacimiento" ColumnName="fechaNacimiento" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="habilidad" ColumnName="habilidad" />
+                <ScalarProperty Name="imagenName" ColumnName="imagenName" />
+                <ScalarProperty Name="imagenData" ColumnName="imagenData" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Villanoes">
+            <EntityTypeMapping TypeName="BibliotecaDBModel.Villano">
+              <MappingFragment StoreEntitySet="Villano">
+                <ScalarProperty Name="fechaNacimiento" ColumnName="fechaNacimiento" />
+                <ScalarProperty Name="imagenData" ColumnName="imagenData" />
+                <ScalarProperty Name="imagenName" ColumnName="imagenName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="amenaza" ColumnName="amenaza" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

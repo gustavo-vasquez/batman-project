@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Capa_Entidades.Villano>
+
+@if (Model.Count() > 0)
+{
+    <table class="table table-bordered table-hover table-responsive">
+        <thead class="bg-danger">
+            <tr>
+                <th>Nombre</th>
+                <th>Amenaza</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+
+        @foreach (var v in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => v.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => v.amenaza)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Editar", "Villano", new { id = v.id }, null) |
+                    @Html.ActionLink("Eliminar", "Eliminar", "Villano", new { id = v.id }, null)
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+else
+{
+    <p>Todavia no hay villanos en la lista.</p>
+}

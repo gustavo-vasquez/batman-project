@@ -1,0 +1,12 @@
+﻿@model ProjectoLibre.Models.Buscador
+
+@Styles.Render("~/Content/jqueryui/estiloBuscador.css")
+@Scripts.Render("~/Scripts/scriptBuscador.js")
+
+@using (@Html.BeginForm("Buscador", "Gotham", FormMethod.Post, new { id = "form-search", role = "search", @class = "navbar-form navbar-right", style = "padding-top: 15px;" }))
+{
+    <div class="form-group">
+        @Html.TextBoxFor(b => b.nombreABuscar, new { @class = "form-control input-sm clearable", placeholder = "Buscar personaje..." })        
+    </div>
+    <button type="submit" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-search"></span></button>
+}

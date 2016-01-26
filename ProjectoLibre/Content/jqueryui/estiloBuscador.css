@@ -1,0 +1,55 @@
+.clearable {
+    background: #fff url(http://i.stack.imgur.com/mJotv.gif) no-repeat right -10px center;
+    border: 1px solid #999;
+    padding: 3px 18px 3px 4px; /* Use the same right padding (18) in jQ! */
+    /*border-radius: 3px;*/
+    transition: background 0.4s;
+}
+
+.clearable.x {
+    background-position: right 5px center;
+}
+
+/* (jQ) Show icon */
+.clearable.onX {
+    cursor: pointer;
+}
+
+/* (jQ) hover cursor style */
+.clearable::-ms-clear {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+/* Remove IE default X */
+
+.ui-state-active, .ui-tabs-selected {
+    border-radius: 0px !important;
+}
+
+.ui-tabs-selected {
+    border-radius: 0px !important;
+}
+
+.ui-tabs .ui-tabs-nav li {
+    filter: none !important;
+}
+
+.ui-tabs .ui-tabs-nav li a {
+    border-radius: 0px !important;
+}
+
+ul.ui-autocomplete.ui-menu {
+    /*width:300px;*/
+    font-family: 'Trebuchet MS' !important;
+    font-size: 12px !important;
+    z-index: 1036 !important;
+}
+
+.ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited { color: #555555; text-decoration: none; }
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+  background-position: 0 -15px;
+  color: #333;
+  text-decoration: none;
+ }

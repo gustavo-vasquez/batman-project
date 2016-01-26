@@ -1,0 +1,83 @@
+﻿@model ProjectoLibre.Models.Listados
+
+@{
+    ViewBag.Title = "Tabs";
+}
+
+@Styles.Render("~/Content/3-col-portfolio.css")
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var animation = $("#loadImage").html();
+
+        $("#heroes").html(animation);
+        $("#heroes").load("/Tab/Heroe");        
+
+        $("#villanoLink").click(function () {
+            $("#villanos").html(animation);
+            $("#villanos").load("/Tab/Villano");
+        });
+
+        $("#galeriaDBLink").click(function () {
+            $("#galeriaDB").html(animation);
+            $("#galeriaDB").load("/Tab/Galeria");
+        });
+
+        $("#galeriaSVLink").click(function () {
+            $("#galeriaSV").html(animation);
+            $("#galeriaSV").load("/Tab/GaleriaSV");
+        });
+
+        $("#contactoLink").click(function () {
+            $("#contacto").html(animation);
+            $("#contacto").load("/Tab/Contacto");
+        });
+
+        $("#trailerLink").click(function () {
+            $("#trailer").html(animation);
+            $("#trailer").load("/Tab/Trailer");
+        });
+    });
+</script>
+
+<style>
+    .nav-tabs > li.active > a,
+    .nav-tabs > li.active > a:hover,
+    .nav-tabs > li.active > a:focus {        
+        background-color: #4e5d6c !important;           
+    }
+
+</style>
+
+<ul class="nav-justified nav-tabs-justified nav nav-tabs">
+    <li class="active"><a id="heroeLink" href="#heroes" data-toggle="tab" aria-expanded="true">Héroes</a></li>
+    <li class=""><a id="villanoLink" href="#villanos" data-toggle="tab" aria-expanded="false">Villanos</a></li>
+    <li class=""><a id="galeriaDBLink" href="#galeriaDB" data-toggle="tab" aria-expanded="false">Galería (Base de datos)</a></li>
+    <li class=""><a id="galeriaSVLink" href="#galeriaSV" data-toggle="tab" aria-expanded="false">Galería (Servidor)</a></li>
+    <li class=""><a id="contactoLink" href="#contacto" data-toggle="tab" aria-expanded="false">Contacto</a></li>
+    <li class=""><a id="trailerLink" href="#trailer" data-toggle="tab" aria-expanded="false">Trailer</a></li>
+</ul>
+
+<div id="myTabContent" class="tab-content well">
+    <div class="tab-pane fade active in" id="heroes">
+    </div>
+
+    <div class="tab-pane fade" id="villanos">
+    </div>
+
+    <div class="tab-pane fade" id="galeriaDB">        
+    </div>
+
+    <div class="tab-pane fade" id="galeriaSV">        
+    </div>
+
+    <div class="tab-pane fade" id="contacto">
+    </div>
+
+    <div class="tab-pane fade" id="trailer">               
+    </div>
+</div>
+
+<div id="loadImage" class="hide">
+    <img src="../../Images/loading7_orange.gif" alt="loading" width="100" class="center-block" />
+</div>

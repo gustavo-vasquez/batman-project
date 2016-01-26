@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "VerJson";
+}
+
+<p id="datosServer">
+</p>
+
+<br /><br />
+<button id="botonLoco">Mostrar la fecha json</button>
+<p id="msjLoco"></p>
+
+<script type="text/jscript">
+    var url = "/Practica/VerFecha";
+
+    $.get(url, null, function (data) {
+        $("#datosServer").html(data);
+    });
+
+    $('#botonLoco').click(function () {
+        var url = "/Practica/VerFecha";
+        $.get(url, null, function (data) {
+            $("#msjLoco").html(data);
+        });
+    })
+</script>
+
+<br />
+
+<p>
+    Enter you name @Html.TextBox("Name")
+    <input type="submit" id="SubmitName" value="Submit" />
+</p>
+<p id="mostrarNombre"></p>
+
+<script type="text/jscript">
+    $('#SubmitName').click(function () {
+        var url = "/Practica/WelcomeMsg";
+        var name = $('#Name').val();
+        $.get(url, { input: name }, function (data) {
+            $("#mostrarNombre").html(data);
+        });
+    })
+</script>
+
+
+
+<p>
+    Enter hero name @Html.TextBox("IdHeroe")
+    <input type="submit" id="GetHeroes" value="Submit" />
+</p>
+
+<script type="text/jscript">
+    $('#GetHeroes').click(function () {
+        $.getJSON('/Practica/ListaHeroe/' + $('#IdHeroe').val(), function (data) {
+
+            var items = '<table><tr><th>Nombre</th><th>Habilidad</th></tr>';
+            $.each(data, function (i, country) {
+                items += "<tr><td>" + country.nombre + "</td><td>" + country.habilidad + "</td></tr>";
+            });
+            items += "</table>";
+
+            $('#info').html(items);
+        });
+    })
+</script>
+
+<br />
+<p id="info">
+</p>

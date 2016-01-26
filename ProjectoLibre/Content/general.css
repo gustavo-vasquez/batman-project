@@ -1,0 +1,173 @@
+﻿::selection {
+  background: #76cea8; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #76cea8; /* Gecko Browsers */
+}
+
+.backimage {
+     background-image: url(http://api.thumbr.it/whitenoise-361x370.png?background=2b3d50ff&noise=626262&density=55&opacity=41);
+     /*background-position: center;
+     background-repeat: no-repeat;
+     background-attachment: fixed;*/
+}
+
+.vert {
+    height:50px;
+}
+
+.bg-table {
+  background-color: #ffffff;
+}
+
+.bg-table > tbody > tr:hover {
+  background-color: #f1eeee;
+}
+
+.trebuchet {
+    font-family: 'Trebuchet MS';
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.input-sm {
+    width: 200px !important;    
+}
+
+#scrollButtonUp {
+    position: fixed;
+    margin-left: 95%;
+    z-index: 9999;
+    display: none;
+}
+
+#scrollButtonDown {
+    position: fixed;
+    padding-bottom: 1%;
+    margin-left: 95%;
+    padding-top: 5%;
+    bottom: 10px;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.navbar {
+-webkit-box-shadow: 0px 9px 11px -6px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 9px 11px -6px rgba(0,0,0,0.75);
+box-shadow: 0px 9px 11px -6px rgba(0,0,0,0.75);
+
+    /* the rest of your styling */
+}
+
+.sidebox-social {
+    padding: 0 0 5px 0;
+}
+.sidebox {
+    width: 100%;
+    overflow: hidden;
+    margin: 0px 0px 15px 0px;
+    min-width: 300px;
+}
+.sidebox-social a:link, .sidebox-social a:visited, .sidebox-social a:hover, .sidebox-social a:active {
+    float: right;
+    width: 32px;
+    height: 32px;
+    margin: -5px 15px 10px 12px;
+    padding: 0;
+    text-indent: -9999em;
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+    background-color: transparent;
+    background-image: url('../Images/social/crunchify-follow-sprite.png');
+    background-repeat: no-repeat;
+}
+.sm-rss {
+    background-position: 0 0;
+}
+.sm-goo {
+    background-position: 0 -32px;
+}
+.sm-fac {
+    background-position: 0 -64px;
+}
+.sm-twi {
+    background-position: 0 -160px;
+}
+.sm-wor {
+    background-position: 0 -192px;
+}
+
+
+/* Turn on a 13x13 scrollbar */
+::-webkit-scrollbar {
+     width: 12px;
+     height: 13px;
+}
+
+::-webkit-scrollbar-button:vertical {
+     background-color: red;
+     /*border: 1px dashed blue;*/            
+}
+
+/* Turn on single button up on top, and down on bottom */
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment {
+      display: block;
+}
+
+/* Turn off the down area up on top, and up area on bottom */
+::-webkit-scrollbar-button:vertical:start:increment,
+::-webkit-scrollbar-button:vertical:end:decrement {
+      display: none;
+}
+
+/* Place The scroll down button at the bottom */
+::-webkit-scrollbar-button:vertical:increment {
+      background-color: #3d3c3c;
+      /*border: 1px dashed blue;*/
+}
+
+/* Place The scroll up button at the up */
+::-webkit-scrollbar-button:vertical:decrement {
+      background-color: #3d3c3c;
+      /*border: 1px dashed blue;*/
+}
+
+::-webkit-scrollbar-track:vertical {
+      background-color: black;
+      /*border: 1px dashed pink;*/
+}
+
+/* Top area above thumb and below up button */
+::-webkit-scrollbar-track-piece:vertical:start {
+      /*border: 1px solid #000;*/
+}
+
+/* Bottom area below thumb and down button */
+::-webkit-scrollbar-track-piece:vertical:end {
+      /*border: 1px solid #000000;*/
+}
+
+/* Track below and above */
+::-webkit-scrollbar-track-piece {
+      background-color: #3d3c3c;
+}
+
+/* The thumb itself */
+::-webkit-scrollbar-thumb:vertical {
+      height: 50px;
+      background-color: #b00404;
+}
+
+/* Corner */
+::-webkit-scrollbar-corner:vertical {
+      background-color: black;
+}
+
+/* Resizer */
+::-webkit-scrollbar-resizer:vertical {
+      background-color: gray;
+}    
