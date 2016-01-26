@@ -11,11 +11,14 @@ using System.IO;
 using System.Drawing;
 using System.Drawing.Imaging;
 using Capa_Entidades;
+using Capa_Servicios;
 
 namespace ProjectoLibre.Controllers
 {
     public class HeroeController : Controller
     {
+        static HeroeServicios heroeServ = new HeroeServicios();
+
         //
         // GET: /Heroe/
 
@@ -70,21 +73,17 @@ namespace ProjectoLibre.Controllers
                         }
 
                     }
-                    
-                    BibliotecaDBEntities context = new BibliotecaDBEntities();
-                    context.Heroes.Add(registro);
 
-                    context.SaveChanges();
-                    context.Dispose();
+                    heroeServ.CrearNuevoPersonaje(registro);
 
                     return PartialView("_Resultado");
                 }
 
                 return PartialView(registro);
             }
-            catch
+            catch (Exception ex)
             {
-                return PartialView(registro);
+                return Content("<script type='text/javascript'>alert('" + ex.Message + "');</script>");
             }
 
         }
@@ -93,12 +92,8 @@ namespace ProjectoLibre.Controllers
         // GET: /Heroe/Edit/5
 
         public ActionResult Editar(int id)
-        {
-            BibliotecaDBEntities context = new BibliotecaDBEntities();
-            var busqueda = context.Heroes.FirstOrDefault(h => h.id == id);
-            context.Dispose();
-
-            return View(busqueda);
+        {            
+            return View(heroeServ.BuscarPersonaje(id));
         }
 
         //
@@ -147,24 +142,9 @@ namespace ProjectoLibre.Controllers
                             image.Write(data, 0, data.Length);
                         }
 
-                    }
-                    
-                    BibliotecaDBEntities context = new BibliotecaDBEntities();
-                    var heroeModificado = context.Heroes.FirstOrDefault(h => h.id == id);
-                    heroeModificado.nombre = registro.nombre;
-                    heroeModificado.habilidad = registro.habilidad;
+                    }                                        
 
-                    if (fileChanged)
-                    {                                               
-                        heroeModificado.imagenName = registro.imagenName;
-                        heroeModificado.imagenData = registro.imagenData;
-                    }
-
-                    heroeModificado.fechaNacimiento = registro.fechaNacimiento;
-                    
-                    context.SaveChanges();
-                    context.Dispose();
-
+                    Heroe heroeModificado = heroeServ.EditarPersonaje(id, registro, fileChanged);
                     ViewBag.submitSuccess = true;
 
                     return View(heroeModificado);                    
@@ -173,9 +153,9 @@ namespace ProjectoLibre.Controllers
                 return View(registro);
 
             }
-            catch
+            catch (Exception ex)
             {
-                return View(registro);
+                return Content("<script type='text/javascript'>alert('" + ex.Message + "');</script>");
             }
         }
 
@@ -183,12 +163,8 @@ namespace ProjectoLibre.Controllers
         // GET: /Heroe/Delete/5
 
         public ActionResult Eliminar(int id)
-        {
-            BibliotecaDBEntities context = new BibliotecaDBEntities();
-            var busqueda = context.Heroes.FirstOrDefault(h => h.id == id);
-            context.Dispose();
-
-            return View(busqueda);
+        {            
+            return View(heroeServ.BuscarPersonaje(id));
         }
 
         //
@@ -200,19 +176,16 @@ namespace ProjectoLibre.Controllers
             try
             {
                 // TODO: Add delete logic here
-                BibliotecaDBEntities context = new BibliotecaDBEntities();
-                var heroeBorrado = context.Heroes.Find(id);
-                context.Heroes.Remove(heroeBorrado);
-                context.SaveChanges();
-                context.Dispose();
+                //int numero = (dynamic)5 / 0; // Forzar excepcion para probar manejo de excepciones
+                var heroeBorrado = heroeServ.EliminarPersonaje(id);
 
                 System.IO.File.Delete(Server.MapPath("~/Images/avatar/heroe/") + heroeBorrado.nombre + Path.GetExtension(heroeBorrado.imagenName));
 
-                return RedirectToAction("Portada", "Gotham");
+                return RedirectToAction("Portada", "Gotham");                
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                return Content("<script type='text/javascript'>alert('" + ex.Message + "');</script>");
             }
         }
     }
