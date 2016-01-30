@@ -39,6 +39,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ManipularImagen, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ManipularImagen\ManipularImagen\bin\Debug\ManipularImagen.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -61,9 +65,6 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -143,17 +144,6 @@
     <Compile Include="Models\Buscador.cs" />
     <Compile Include="Models\Busqueda.cs" />
     <Compile Include="Models\Listados.cs" />
-    <Compile Include="Models\PersonajesGotham.Context.cs">
-      <DependentUpon>PersonajesGotham.Context.tt</DependentUpon>
-      <SubType>Code</SubType>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
-    <Compile Include="Models\PersonajesGotham.Designer.cs">
-      <DependentUpon>PersonajesGotham.edmx</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
     <Compile Include="Models\ResultadoTipoDato.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -198,15 +188,6 @@
     <Content Include="Images\malihu-scrollbar-plugin\mCSB_buttons.png" />
     <Content Include="Images\social\crunchify-follow-sprite.png" />
     <Content Include="Images\social\social-media-sprite.png" />
-    <Content Include="Models\PersonajesGotham.Context.tt">
-      <DependentUpon>PersonajesGotham.edmx</DependentUpon>
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>PersonajesGotham.Context.cs</LastGenOutput>
-      <CustomToolNamespace>Capa_Entidades</CustomToolNamespace>
-    </Content>
-    <Content Include="Models\PersonajesGotham.edmx.diagram">
-      <DependentUpon>PersonajesGotham.edmx</DependentUpon>
-    </Content>
     <Content Include="Scripts\datepicker.js" />
     <Content Include="Scripts\fileStyle\bootstrap-filestyle.js" />
     <Content Include="Scripts\fileStyle\bootstrap-filestyle.min.js" />
@@ -348,12 +329,6 @@
       <Project>{ee525580-7aa1-4114-bf94-67b1d53fe7d8}</Project>
       <Name>Capa_Servicios</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="Models\PersonajesGotham.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PersonajesGotham.Designer.cs</LastGenOutput>
-    </EntityDeploy>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

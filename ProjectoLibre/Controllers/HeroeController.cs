@@ -12,12 +12,13 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using Capa_Entidades;
 using Capa_Servicios;
+using ManipularImagen;
 
 namespace ProjectoLibre.Controllers
 {
     public class HeroeController : Controller
     {
-        static HeroeServicios heroeServ = new HeroeServicios();
+        static HeroeServicios heroeServicio = new HeroeServicios();
 
         //
         // GET: /Heroe/
@@ -46,35 +47,8 @@ namespace ProjectoLibre.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    HttpPostedFileBase archivo = registro.file;
-
-                    // Verify that the user selected a file
-                    if (archivo != null && archivo.ContentLength > 0)
-                    {
-                        // Get file info
-                        var fileName = Path.GetFileName(archivo.FileName);
-                        //var contentLength = registro.File.ContentLength;
-                        //var contentType = registro.File.ContentType;
-
-                        // Get file data
-                        byte[] data = new byte[] { };
-                        using (var binaryReader = new BinaryReader(archivo.InputStream))
-                        {
-                            data = binaryReader.ReadBytes(archivo.ContentLength);
-                        }
-
-                        // Guardar imagen en la base de datos
-                        registro.imagenName = fileName;
-                        registro.imagenData = data;                                            
-
-                        // Guardar imagen en el servidor
-                        using (FileStream image = System.IO.File.Create(Server.MapPath("~/Images/avatar/heroe/") + registro.nombre + Path.GetExtension(fileName), data.Length)) {
-                            image.Write(data, 0, data.Length);
-                        }
-
-                    }
-
-                    heroeServ.CrearNuevoPersonaje(registro);
+                    new MiImagen().SubirNueva(registro, Server);
+                    heroeServicio.CrearNuevoPersonaje(registro);
 
                     return PartialView("_Resultado");
                 }
@@ -93,7 +67,7 @@ namespace ProjectoLibre.Controllers
 
         public ActionResult Editar(int id)
         {            
-            return View(heroeServ.BuscarPersonaje(id));
+            return View(heroeServicio.BuscarPersonaje(id));
         }
 
         //
@@ -109,45 +83,11 @@ namespace ProjectoLibre.Controllers
 
                 if (ModelState.IsValid)
                 {
-                    HttpPostedFileBase archivo = registro.file;
-
-                    // Verify that the user selected a file
-                    if (archivo != null && archivo.ContentLength > 0)
-                    {
-                        // Get file info
-                        var fileName = Path.GetFileName(archivo.FileName);
-                        //var contentLength = registro.File.ContentLength;
-                        //var contentType = registro.File.ContentType;
-
-                        // Get file data
-                        byte[] data = new byte[] { };
-                        using (var binaryReader = new BinaryReader(archivo.InputStream))
-                        {
-                            data = binaryReader.ReadBytes(archivo.ContentLength);
-                        }
-
-                        // Save to database
-                        registro.imagenName = fileName;
-                        registro.imagenData = data;
-                        fileChanged = true;
-
-                        string extension = Path.GetExtension(fileName);
-
-                        //Borrar foto anterior
-                        //System.IO.File.Delete(Server.MapPath("~/Images/avatar/heroe/" + registro.nombre));
-
-                        // Guardar imagen en el servidor
-                        using (FileStream image = System.IO.File.Create(Server.MapPath("~/Images/avatar/heroe/") + registro.nombre + extension, data.Length))
-                        {
-                            image.Write(data, 0, data.Length);
-                        }
-
-                    }                                        
-
-                    Heroe heroeModificado = heroeServ.EditarPersonaje(id, registro, fileChanged);
+                    new MiImagen().SubirEditado(registro, Server, ref fileChanged);
+                    Heroe heroeModificado = heroeServicio.EditarPersonaje(id, registro, fileChanged);
                     ViewBag.submitSuccess = true;
 
-                    return View(heroeModificado);                    
+                    return View(heroeModificado);                
                 }
 
                 return View(registro);
@@ -164,7 +104,7 @@ namespace ProjectoLibre.Controllers
 
         public ActionResult Eliminar(int id)
         {            
-            return View(heroeServ.BuscarPersonaje(id));
+            return View(heroeServicio.BuscarPersonaje(id));
         }
 
         //
@@ -177,7 +117,7 @@ namespace ProjectoLibre.Controllers
             {
                 // TODO: Add delete logic here
                 //int numero = (dynamic)5 / 0; // Forzar excepcion para probar manejo de excepciones
-                var heroeBorrado = heroeServ.EliminarPersonaje(id);
+                var heroeBorrado = heroeServicio.EliminarPersonaje(id);
                 System.IO.File.Delete(Server.MapPath("~/Images/avatar/heroe/") + heroeBorrado.nombre + Path.GetExtension(heroeBorrado.imagenName));
 
                 return RedirectToAction("Portada", "Gotham");                

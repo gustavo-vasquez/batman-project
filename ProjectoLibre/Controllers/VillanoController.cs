@@ -10,12 +10,13 @@ using ProjectoLibre.Models;
 using System.IO;
 using Capa_Entidades;
 using Capa_Servicios;
+using ManipularImagen;
 
 namespace ProjectoLibre.Controllers
 {
     public class VillanoController : Controller
     {
-        static VillanoServicios villanoServ = new VillanoServicios();
+        static VillanoServicios villanoServicio = new VillanoServicios();
         //
         // GET: /Villano/
 
@@ -43,37 +44,8 @@ namespace ProjectoLibre.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    HttpPostedFileBase archivo = registro.file;
-
-
-                    // Verify that the user selected a file
-                    if (archivo != null && archivo.ContentLength > 0)
-                    {
-                        // Get file info
-                        var fileName = Path.GetFileName(archivo.FileName);
-                        //var contentLength = registro.File.ContentLength;
-                        //var contentType = registro.File.ContentType;
-
-                        // Get file data
-                        byte[] data = new byte[] { };
-                        using (var binaryReader = new BinaryReader(archivo.InputStream))
-                        {
-                            data = binaryReader.ReadBytes(archivo.ContentLength);
-                        }
-
-                        // Guardar imagen en la base de datos
-                        registro.imagenName = fileName;
-                        registro.imagenData = data;
-
-                        // Guardar imagen en el servidor
-                        using (FileStream image = System.IO.File.Create(Server.MapPath("~/Images/avatar/villano/") + registro.nombre + Path.GetExtension(fileName), data.Length))
-                        {
-                            image.Write(data, 0, data.Length);
-                        }
-
-                    }
-
-                    villanoServ.CrearNuevoPersonaje(registro);
+                    new MiImagen().SubirNueva(registro, Server);
+                    villanoServicio.CrearNuevoPersonaje(registro);
 
                     return PartialView("_Resultado");
                 }
@@ -92,13 +64,14 @@ namespace ProjectoLibre.Controllers
 
         public ActionResult Editar(int id)
         {           
-            return View(villanoServ.BuscarPersonaje(id));
+            return View(villanoServicio.BuscarPersonaje(id));
         }
 
         //
         // POST: /Villano/Edit/5
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Editar(int id, Villano registro)
         {
             try
@@ -107,39 +80,8 @@ namespace ProjectoLibre.Controllers
 
                 if (ModelState.IsValid)
                 {
-                    HttpPostedFileBase archivo = registro.file;
-
-                    // Verify that the user selected a file
-                    if (archivo != null && archivo.ContentLength > 0)
-                    {
-                        // Get file info
-                        var fileName = Path.GetFileName(archivo.FileName);
-                        //var contentLength = registro.File.ContentLength;
-                        //var contentType = registro.File.ContentType;
-
-                        // Get file data
-                        byte[] data = new byte[] { };
-                        using (var binaryReader = new BinaryReader(archivo.InputStream))
-                        {
-                            data = binaryReader.ReadBytes(archivo.ContentLength);
-                        }
-
-                        // Save to database
-                        registro.imagenName = fileName;
-                        registro.imagenData = data;
-                        fileChanged = true;
-
-                        string extension = Path.GetExtension(fileName);
-
-                        // Guardar imagen en el servidor
-                        using (FileStream image = System.IO.File.Create(Server.MapPath("~/Images/avatar/villano/") + registro.nombre + extension, data.Length))
-                        {
-                            image.Write(data, 0, data.Length);
-                        }
-
-                    }
-
-                    Villano villanoModificado = villanoServ.EditarPersonaje(id, registro, fileChanged);
+                    new MiImagen().SubirEditado(registro, Server, ref fileChanged);
+                    Villano villanoModificado = villanoServicio.EditarPersonaje(id, registro, fileChanged);
                     ViewBag.submitSuccess = true;
 
                     return View(villanoModificado);
@@ -159,7 +101,7 @@ namespace ProjectoLibre.Controllers
 
         public ActionResult Eliminar(int id)
         {
-            return View(villanoServ.BuscarPersonaje(id));
+            return View(villanoServicio.BuscarPersonaje(id));
         }
 
         //
@@ -171,7 +113,7 @@ namespace ProjectoLibre.Controllers
             try
             {
                 // TODO: Add delete logic here
-                Villano villanoBorrado = villanoServ.EliminarPersonaje(id);
+                Villano villanoBorrado = villanoServicio.EliminarPersonaje(id);
                 System.IO.File.Delete(Server.MapPath("~/Images/avatar/villano/") + villanoBorrado.nombre + Path.GetExtension(villanoBorrado.imagenName));
 
                 return RedirectToAction("Portada", "Gotham");

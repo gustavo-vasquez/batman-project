@@ -12,7 +12,7 @@
 
     <!-- Projects Row -->
     <div class="row">
-        @if (Model.ExistenHeroes())
+        @if (Model.MostrarHeroes().Count > 0)
         {
             foreach (var h in Model.MostrarHeroes())
             {
@@ -58,7 +58,7 @@
 
     <!-- Projects Row -->
     <div class="row">
-        @if (Model.ExistenVillanos())
+        @if (Model.MostrarVillanos().Count > 0)
         {
             foreach (var v in Model.MostrarVillanos())
             {

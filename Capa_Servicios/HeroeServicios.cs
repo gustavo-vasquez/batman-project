@@ -30,7 +30,7 @@ namespace Capa_Servicios
         {
             GothamDBEntities context = new GothamDBEntities();
             var heroeModificado = context.Heroes.FirstOrDefault(h => h.id == id);
-            heroeModificado.nombre = registro.nombre;
+            heroeModificado.nombre = registro.nombre;            
             heroeModificado.habilidad = registro.habilidad;
 
             if (fileChanged)

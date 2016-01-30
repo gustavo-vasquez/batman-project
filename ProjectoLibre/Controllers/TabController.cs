@@ -12,29 +12,32 @@ namespace ProjectoLibre.Controllers
 {
     public class TabController : Controller
     {
-        static TabServicios tabsServ = new TabServicios();
-        //
-        // GET: /Tab/
-
+        static TabServicios tabsServicio = new TabServicios();
+        static CommonServicios commonServicio = new CommonServicios();
         static Listados listaditos = new Listados();
+        
+        //
+        // GET: /Tab/        
 
         public ActionResult Heroe()
         {
             Thread.Sleep(2000);            
 
-            return PartialView("_Heroe", tabsServ.ObtenerListaHeroes());
+            return PartialView("_Heroe", tabsServicio.ObtenerListaHeroes());
         }
 
         public ActionResult Villano()
         {
             Thread.Sleep(2000);            
 
-            return PartialView("_Villano", tabsServ.ObtenerListaVillanos());
+            return PartialView("_Villano", tabsServicio.ObtenerListaVillanos());
         }
 
         public ActionResult Galeria()
         {
             Thread.Sleep(2000);
+            listaditos.CargarHeroes(commonServicio.ListaHeroes());
+            listaditos.CargarVillanos(commonServicio.ListaVillanos());
 
             return PartialView("_GaleriaDB", listaditos);
         }
@@ -42,6 +45,8 @@ namespace ProjectoLibre.Controllers
         public ActionResult GaleriaSV()
         {
             Thread.Sleep(2000);
+            listaditos.CargarHeroes(commonServicio.ListaHeroes());
+            listaditos.CargarVillanos(commonServicio.ListaVillanos());
 
             return PartialView("_GaleriaSV", listaditos);
         }

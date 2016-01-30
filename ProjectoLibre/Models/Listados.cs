@@ -10,8 +10,8 @@ namespace ProjectoLibre.Models
     {
         private List<Heroe> _heroesLista = new List<Heroe>();
         private List<Villano> _villanosLista = new List<Villano>();
-        private bool _existeHeroes = false;
-        private bool _existeVillanos = false;
+        //private bool _existeHeroes = false;
+        //private bool _existeVillanos = false;
 
         public List<Heroe> MostrarHeroes()
         {
@@ -23,33 +23,39 @@ namespace ProjectoLibre.Models
             return this._villanosLista;
         }
 
-        public bool ExistenHeroes()
+        public void CargarHeroes(List<Heroe> heroes)
         {
-            BibliotecaDBEntities context = new BibliotecaDBEntities();
-            this._heroesLista = context.Heroes.ToList();
-            context.Dispose();
-
-            if (this._heroesLista.Any())
-                this._existeHeroes = true;
-            else
-                this._existeHeroes = false;
-
-            return this._existeHeroes;
+            this._heroesLista = heroes;
         }
 
-        public bool ExistenVillanos()
+        public void CargarVillanos(List<Villano> villanos)
         {
-            BibliotecaDBEntities context = new BibliotecaDBEntities();
-            this._villanosLista = context.Villanoes.ToList();
-            context.Dispose();
-
-            if (this._villanosLista.Any())
-                this._existeVillanos = true;
-            else
-                this._existeVillanos = false;
-
-            return this._existeVillanos;
+            this._villanosLista = villanos;
         }
+
+        //public bool ExistenHeroes(List<Heroe> lista)
+        //{            
+        //    this._heroesLista = lista;         
+
+        //    if (this._heroesLista.Any())
+        //        this._existeHeroes = true;
+        //    else
+        //        this._existeHeroes = false;
+
+        //    return this._existeHeroes;
+        //}
+
+        //public bool ExistenVillanos(List<Villano> lista)
+        //{
+        //    this._villanosLista = lista;            
+
+        //    if (this._villanosLista.Any())
+        //        this._existeVillanos = true;
+        //    else
+        //        this._existeVillanos = false;
+
+        //    return this._existeVillanos;
+        //}
 
     }
 }

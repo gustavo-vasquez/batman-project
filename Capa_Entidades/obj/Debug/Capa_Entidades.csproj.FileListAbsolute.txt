@@ -5,3 +5,4 @@ C:\Users\vasqu\documents\visual studio 2013\Projects\ProjectoLibre\Capa_Entidade
 C:\Users\vasqu\documents\visual studio 2013\Projects\ProjectoLibre\Capa_Entidades\bin\Debug\Capa_Entidades.dll.config
 C:\Users\vasqu\documents\visual studio 2013\Projects\ProjectoLibre\Capa_Entidades\bin\Debug\EntityFramework.dll
 C:\Users\vasqu\documents\visual studio 2013\Projects\ProjectoLibre\Capa_Entidades\bin\Debug\EntityFramework.xml
+C:\Users\vasqu\documents\visual studio 2013\Projects\ProjectoLibre\Capa_Entidades\obj\Debug\Capa_Entidades.csprojResolveAssemblyReference.cache

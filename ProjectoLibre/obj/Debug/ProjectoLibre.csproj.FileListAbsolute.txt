@@ -40,3 +40,5 @@ C:\Users\vasqu\documents\visual studio 2013\Projects\ProjectoLibre\ProjectoLibre
 C:\Users\vasqu\documents\visual studio 2013\Projects\ProjectoLibre\ProjectoLibre\bin\Capa_Datos.dll
 C:\Users\vasqu\documents\visual studio 2013\Projects\ProjectoLibre\ProjectoLibre\bin\Capa_Servicios.pdb
 C:\Users\vasqu\documents\visual studio 2013\Projects\ProjectoLibre\ProjectoLibre\bin\Capa_Datos.pdb
+C:\Users\vasqu\documents\visual studio 2013\Projects\ProjectoLibre\ProjectoLibre\bin\ManipularImagen.dll
+C:\Users\vasqu\documents\visual studio 2013\Projects\ProjectoLibre\ProjectoLibre\bin\ManipularImagen.pdb

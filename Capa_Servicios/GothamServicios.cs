@@ -22,5 +22,16 @@ namespace Capa_Servicios
             else
                 return personaje;
         }
+
+        public List<Heroe> ListaHeroes()
+        {
+            return new GothamDBEntities().Heroes.ToList();
+        }
+
+        public List<Villano> ListaVillanos()
+        {
+            return new GothamDBEntities().Villanoes.ToList();
+        }
+        
     }
 }

@@ -68,7 +68,7 @@
 
     <h3>Héroes</h3>
 
-    @if (Model.ExistenHeroes())
+    @if (Model.MostrarHeroes().Count > 0)
     {
         <table class="table table-bordered table-hover table-responsive">
             <thead class="bg-success">
@@ -107,7 +107,7 @@
 
     <h3>Villanos</h3>
 
-    @if (Model.ExistenVillanos())
+    @if (Model.MostrarVillanos().Count > 0)
     {
         <table class="table table-bordered table-hover table-responsive">
             <thead class="bg-danger">
@@ -141,22 +141,4 @@
         <p>Todavia no hay villanos en la lista, @Html.ActionLink("crea uno ahora", "Crear")</p>
     }
 
-
-
-    @*<div id="DivHeroe">
-
-        </div>
-        <script>
-            $("#DivHeroe").load("/Gotham/Editar?id=4&tipo=h");
-        </script>*@
 </div>
-<!-- /.row -->
-
-@*<div id="DivDelete" style="display: none;">
-</div>*@
-
-@*<script type="text/javascript">
-    function cargar(ide) {
-        $("#DivDelete").load("../Heroe/Eliminar")
-    }
-</script>*@

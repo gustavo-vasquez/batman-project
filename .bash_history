@@ -123,3 +123,9 @@ git config --global core.askpass
 git config --global core.askpass ''
 git config --global core.askpass
 exit
+git status
+git add .
+git status
+git commit -m "Capa de servicios completa y funcional"
+git push origin nightly
+exit

@@ -15,14 +15,18 @@ namespace ProjectoLibre.Controllers
 {
     public class GothamController : Controller
     {
-        static GothamServicios gothamServ = new GothamServicios();
-        static Listados listas = new Listados();
+        static GothamServicios gothamServicio = new GothamServicios();
+        static CommonServicios commonServicio = new CommonServicios();
+        static Listados listadito = new Listados();
         //
         // GET: /Gotham/
 
         public ActionResult Portada()
         {
-            return View(listas);
+            listadito.CargarHeroes(commonServicio.ListaHeroes());
+            listadito.CargarVillanos(commonServicio.ListaVillanos());
+
+            return View(listadito);
         }
 
         public ActionResult Crear()
@@ -32,7 +36,10 @@ namespace ProjectoLibre.Controllers
 
         public ActionResult Tabs()
         {
-            return View(listas);
+            listadito.CargarHeroes(commonServicio.ListaHeroes());
+            listadito.CargarVillanos(commonServicio.ListaVillanos());
+
+            return View(listadito);
         }
 
         public ActionResult Contacto()
@@ -55,7 +62,7 @@ namespace ProjectoLibre.Controllers
         {
             try
             {
-                dynamic personaje = gothamServ.RealizarBusqueda(nombreABuscar);
+                dynamic personaje = gothamServicio.RealizarBusqueda(nombreABuscar);
                 ViewBag.EsHeroe = (personaje is Heroe) ? true : ViewBag.EsHeroe = false;
 
                 return PartialView("_ResultadoBusqueda", new ResultadoTipoDato(personaje));
