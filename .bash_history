@@ -129,3 +129,9 @@ git status
 git commit -m "Capa de servicios completa y funcional"
 git push origin nightly
 exit
+git status
+git add .
+git status
+git commit -m "Separado la parte de subida de imagen a un assembly propio y corregidas algunas cosas en las vistas"
+git push origin nightly
+exit

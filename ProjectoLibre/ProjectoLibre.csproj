@@ -133,6 +133,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\GothamController.cs" />
     <Compile Include="Controllers\HeroeController.cs" />
     <Compile Include="Controllers\PracticaController.cs" />
@@ -283,7 +284,6 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Gotham\Portada.cshtml" />
     <Content Include="Views\Gotham\Contacto.cshtml" />
@@ -306,6 +306,9 @@
     <Content Include="Views\Tab\_Villano.cshtml" />
     <Content Include="Views\Tab\_Heroe.cshtml" />
     <Content Include="Views\Tab\_GaleriaSV.cshtml" />
+    <Content Include="Views\Error\BadRequest.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Error\InternalServer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

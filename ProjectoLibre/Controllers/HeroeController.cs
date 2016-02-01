@@ -112,11 +112,11 @@ namespace ProjectoLibre.Controllers
 
         [HttpPost]
         public ActionResult Eliminar(int id, FormCollection collection)
-        {
+        {            
             try
             {
                 // TODO: Add delete logic here
-                //int numero = (dynamic)5 / 0; // Forzar excepcion para probar manejo de excepciones
+                int numero = (dynamic)5 / 0; // Forzar excepcion para probar manejo de excepciones
                 var heroeBorrado = heroeServicio.EliminarPersonaje(id);
                 System.IO.File.Delete(Server.MapPath("~/Images/avatar/heroe/") + heroeBorrado.nombre + Path.GetExtension(heroeBorrado.imagenName));
 
@@ -125,7 +125,7 @@ namespace ProjectoLibre.Controllers
             catch (Exception ex)
             {
                 return Content("<script type='text/javascript'>alert('" + ex.Message + "');</script>");
-            }
+            }            
         }
     }
 }
